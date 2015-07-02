@@ -28,7 +28,7 @@ https://trello.com/b/8TrhYmBO/takemythings
 
 ##Wireframes
 
-
+[embed]https://github.com/karieger1/kristenfinalproject/blob/master/TakeMyThings.pdf[/embed]
 
 ##Models
 
