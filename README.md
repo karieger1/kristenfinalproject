@@ -28,7 +28,7 @@ https://trello.com/b/8TrhYmBO/takemythings
 
 ##Wireframes
 
-[embed]https://drive.google.com/file/d/0B5cehxuAUaR3LVNES2dzdDdUQTA/view[/embed]
+
 
 ##Models
 
