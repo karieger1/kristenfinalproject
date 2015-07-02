@@ -34,3 +34,7 @@ https://github.com/karieger1/kristenfinalproject/blob/master/TakeMyThings.pdf
 
 
 ##APIs, Plugins, Libraries and Frameworks
+
+This app will be heavily reliant upon Google Maps API. JS Validate plugin will be used -- other plugins TBD. Primary frameworks include jQuery and the Google Web Toolkit. Backbone library will also be used. Apache Cordova will be used to convert site to a mobile app platform.
+
+Scratching the surface of Google Maps API: https://github.com/karieger1/kristenfinalproject/tree/master/googlemapsprac
