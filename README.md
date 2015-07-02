@@ -1,6 +1,6 @@
 # kristenfinalproject
 
-#Description
+##Description
 
 More humans = more waste. This is a constant -- it has always been, and will always be. The problem is that the human population continues to grow, with no forseeable ceiling, while the amount of waste our planet can handle is steadily approaching its limit. Concurrently, the gap between those who have and those who have not is growing wider and wider. 
 
@@ -16,6 +16,21 @@ TMT's goals are threefold:
 2. To reduce waste , both in our homes, and especially in our landfills
 3. To provide a fun user experience -- finding free things should be like a treasure hunt!
 
-TakeMyThings primary strength is its universal appeal. Everyone has things in their garage, storage locker, closet, etc. that they no longer need. They just lack the motivation to do something about it. 
+TakeMyThings primary strength is its universal appeal. Everyone has things in their garage, storage locker, closet, etc. that they no longer need. They just lack the motivation to do something about it. Oftentimes we notice this stuff when we're moving or doing some spring cleaning.'
 
 This is especially true when it comes to furniture. The city's policies on disposing of unwanted furniture are a bit quirky. And those people who would like to donate their furniture to places like Goodwill often don't have the means (a truck) to get their stuff there.' So furniture often ends up getting dumped by the dumpster in apartment complexes or office buildings (which is illegal!) or sitting in an empty lot until it ultimately ends up in a landfill. 
+
+TMT simplifies the process of connecting those who want to quickly get rid of unwanted things to those who want or need those things!
+
+##User Stories 
+
+https://trello.com/b/8TrhYmBO/takemythings
+
+##Wireframes
+
+[embed]https://drive.google.com/file/d/0B5cehxuAUaR3LVNES2dzdDdUQTA/view[/embed]
+
+##Models
+
+
+##APIs, Plugins, Libraries and Frameworks
