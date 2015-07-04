@@ -1,0 +1,23 @@
+{
+  "name": "kristenfinalproject",
+  "version": "1.0.0",
+  "description": "##Description",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karieger1/kristenfinalproject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karieger1/kristenfinalproject/issues"
+  },
+  "homepage": "https://github.com/karieger1/kristenfinalproject#readme",
+  "dependencies": {
+    "bootstrap": "^3.3.5",
+    "jquery": "^2.1.4"
+  }
+}
