@@ -30,7 +30,7 @@ https://trello.com/b/8TrhYmBO/takemythings
 
 Version 1: https://github.com/karieger1/kristenfinalproject/blob/master/TMTv1.pdf
 
-Mobile (later version) https://github.com/karieger1/kristenfinalproject/blob/master/TakeMyThings.pdf
+Mobile (later version) https://github.com/karieger1/kristenfinalproject/blob/master/Planning%20stuff/TMTv1.pdf
 
 ##Models
 
