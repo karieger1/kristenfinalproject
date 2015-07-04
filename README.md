@@ -28,13 +28,17 @@ https://trello.com/b/8TrhYmBO/takemythings
 
 ##Wireframes
 
-https://github.com/karieger1/kristenfinalproject/blob/master/TakeMyThings.pdf
+Version 1: https://github.com/karieger1/kristenfinalproject/blob/master/TMTv1.pdf
+
+Mobile (later version) https://github.com/karieger1/kristenfinalproject/blob/master/TakeMyThings.pdf
 
 ##Models
+
+[Imgur](http://i.imgur.com/agf0WUT.png)
 
 
 ##APIs, Plugins, Libraries and Frameworks
 
-This app will be heavily reliant upon Google Maps API. JS Validate plugin will be used -- other plugins TBD. Primary frameworks include jQuery and the Google Web Toolkit. Backbone library will also be used. Apache Cordova will be used to convert site to a mobile app platform.
+This app will be heavily reliant upon Google Maps API. JS Validate plugin will be used -- other plugins TBD. Primary frameworks include jQuery, React, and the Google Web Toolkit. Backbone library will also be used. Apache Cordova will be used to convert site to a mobile app platform (if time allows...).
 
 Scratching the surface of Google Maps API: https://github.com/karieger1/kristenfinalproject/tree/master/googlemapsprac
