@@ -1,4 +1,17 @@
-#top-image {
-	width: 100%;
-	height: 50px;
+body {
+	font-family: Courier New;
+	background-image: url("../images/background.jpg")
+
+}
+
+h1 {
+	color: white;
+}
+
+#navbar {
+	/*font-color: white;*/
+	background-color: black;
+	opacity: 0.5;
+	width:100%;
+	height: 4em;
 }
