@@ -1,15 +1,17 @@
-body {
-	font-family: Courier New;
+#page-top {
+	font-family: Courier;
+	color: white;
 	background-image: url("../images/background.jpg")
 
 }
 
 h1 {
 	color: white;
+	display: block;
 }
 
 #navbar {
-	/*font-color: white;*/
+	color: white;
 	background-color: black;
 	opacity: 0.5;
 	width:100%;
