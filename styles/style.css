@@ -1,19 +1,74 @@
 #page-top {
 	font-family: Courier;
-	color: white;
+	
 	background-image: url("../images/background.jpg")
 
 }
+.page-scroll {
+	 color: white !important;
+}
 
-h1 {
+/*h1 {
 	color: white;
 	display: block;
+	padding-top:5em;
+	padding-left: 5em;
+	font-size: 50px;
+}*/
+
+#logo {
+	padding-top: 3em;
+	text-shadow:#fff 1px 3px 0, #000 0 -1px 0;
+	font-size: 66px;
+	letter-spacing: -2px;
+}
+
+#tmt {
+	letter-spacing: -1px;
+	margin-bottom: 2em;
+}
+
+#button1 {
+	display: inline-block;
+	background-color: transparent; !important;
+	float: left;
+	border: solid white 3px;
+	background-color: black;
+	opacity: 0.7;
+	padding: 20px;
+}
+
+#button2 {
+	display: inline-block;
+	background-color: transparent; !important;	
+	float: right;	
+	border: solid white 3px;
+	background-color: black;
+	opacity: 0.7;
+	padding: 20px;
+
+}
+
+.jumbotron {
+	color: white !important;
 }
 
 #navbar {
 	color: white;
 	background-color: black;
-	opacity: 0.5;
+	opacity: 0.7;
 	width:100%;
 	height: 4em;
+}
+
+#goals {
+	margin-top: 40px;
+	font-size:18px;
+	border: solid white 2px;
+	
+	width: 300px;
+
+}
+ul {
+	list-style: none;
 }
