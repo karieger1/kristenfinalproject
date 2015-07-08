@@ -1,8 +1,11 @@
 var React = require('react');
 var Backbone = require('backbone');
 Backbone.$ = require('jquery');
+var AboutUs = require('./components/aboutUsComponent');
+var NavComponent = require('./components/navcomponent');
+var ListingCollection = require('./collections/listingCollection');
 
-console.log('application running');
+var listingModel = require("./models/listingModel");
 
 //set up router:
 
@@ -18,11 +21,12 @@ var App = Backbone.Router.extend({
 		'listSuccess':     'listSuccess',
 		'aboutUs': 	       'aboutUs'
 	},
+
 	home: function() {
-		// React.render(
-		// 	<HomePage categories={cat} />,
-		// 	containerEl
-		// );
+		//  React.render(
+		// <NavComponent />,
+		// // 	containerEl
+		//  );
 	},
 	findthingsMap: function() {
 		// React.render(
@@ -61,10 +65,10 @@ var App = Backbone.Router.extend({
 		// );
 	},
 	aboutUs: function() {
-		// React.render(
-		// 	<ProductPage />,
-		// 	containerEl
-		// );
+		 React.render(
+		 	<AboutUs />,
+		 	containerEl
+		 );
 	}
 });
 
