@@ -4,7 +4,7 @@ module.exports = React.createClass({
 	render: function () {
 		return (
 			<div>
-				Find things list view.
+				Highly important information about item.
 			</div>
 		);
 	}

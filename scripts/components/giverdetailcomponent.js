@@ -4,7 +4,7 @@ module.exports = React.createClass({
 	render: function () {
 		return (
 			<div>
-				Find things list view.
+				Will display giver's contact info.
 			</div>
 		);
 	}

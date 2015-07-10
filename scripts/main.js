@@ -4,6 +4,9 @@ Backbone.$ = require('jquery');
 
 var containerEl = document.getElementById("container");
 
+var GiverDetail = require("./components/giverdetailcomponent");
+var ItemDetail = require("./components/itemdetailcomponent");
+var ListSuccess = require("./components/listsuccesscomponent");
 var ListThings = require("./components/listThingsComponent");
 var FindThingsList = require("./components/findthingslistcomponent");
 var FindThingsMap = require("./components/findThingsMapComponent");
@@ -32,7 +35,7 @@ var App = Backbone.Router.extend({
 		'findThingsMap':   'findThingsMap',
 		'itemDetail': 	   'itemDetail',
 		'findThingsList':  'findThingsList',
-		'giverInfo':       'giverInfo',
+		'giverDetail':     'giverDetail',
 		'listThings':      'listThings',
 		'listSuccess':     'listSuccess',
 		'aboutUs': 	       'aboutUs'
@@ -54,19 +57,19 @@ var App = Backbone.Router.extend({
 	},
 	findThingsList: function() {
 		// React.render(
-		// 	<CategoryPage />,
+		// 	<FindThingsList />,
 		// 	containerEl
 		// );
 	},
 	itemDetail: function() {
 		// React.render(
-		// 	<CategoryPage />,
+		// 	<ItemDetail />,
 		// 	containerEl
 		// );
 	},
-	giverInfo: function() {
+	giverDetail: function() {
 		// React.render(
-		// 	<CategoryPage />,
+		// 	<GiverDetail />,
 		// 	containerEl
 		// );
 	},
@@ -78,7 +81,7 @@ var App = Backbone.Router.extend({
 	},
 	listSuccess: function() {
 		// React.render(
-		// 	<SearchPage />,
+		// 	<ListSuccess />,
 		// 	containerEl
 		// );
 	},
