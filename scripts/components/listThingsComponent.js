@@ -1,43 +1,61 @@
-var React = require('react');
+var React = require('react'); 
+var validator = require('validator'); 
+var ListModel = require("../models/listingModel");
 
 module.exports = React.createClass({
-    render: function () {
-        return (
-          <div>
-            <h1> List your item! </h1>
+	
+	render: function () {
+		return (
+			<div>
+				<h1> List your item! </h1>
+				
 
-    //         	<form>
-    //         		<div className="form-group">
-				//         <label for="inputName">Your name:</label>
-				//         <input type="text" className="form-control" id="inputName" placeholder="Joe Cool">
-				//     </div>
-				//     <div className="form-group">
-				//         <label for="inputPhone">Email:</label>
-				//         <input type="email" className="form-control" id="inputEmail" placeholder="Email">
-				//     </div>
-				//     <div className="form-group">
-				//         <label for="inputTel">Phone number:</label>
-				//         <input type='tel' className="form-control" pattern='[\(]\d{2}[\)]\d{4}[\-]\d{4}' id="inputTel" placeholder="512-555-5555"> 
-				//     </div>
-				//     <div className="form-group">
-				//         <label for="inputAddress">Street Address:</label>
-				//         <input type="text" className="form-control" id="inputAddress" placeholder="1212 Coolpeople Ln">
-				//     </div>
-				//     <div className="form-group">
-				//         <label for="inputZip">Zipcode:</label>
-				//         <input type="number" className="form-control" name="quantity" min="5" max="5" id="inputZip" placeholder="78704">
-				//     </div>
-				//     //category dropdown here
-				//     <div className="form-group">
-				//         <label for="inputDescr">Short description:</label>
-				//         <input type="text" className="form-control" id="inputDescr" placeholder="It usually works...">
-				//     </div>
+					<form onSubmit={this.submitListing}>
+						<input ref='title' label='title' placeholder='Title your listing' /><br/>
+						<textarea ref='description' label="description">Describe your free thing!</textarea><br/>
+						<input ref='condition' label='itemCondition' placeholder="Working, not working?" /></br>
+						<input ref='category' label='category' placeholder='Category'>
+						      <option value='select'>Please select</option>
+						      <option value='apparel'>Apparel/shoes</option>
+						      <option value='bicycles'>Bicycles</option>
+						      <option value='books'>Books</option>
+						      <option value='electronics'>Electronics</option>
+						      <option value='furniture'>Furniture</option>
+						      <option value='instruments'>Instruments</option>
+						      <option value='jewelry'>Jewelry</option>
+						      <option value='kids'>Kids stuff</option>
+						      <option value='sports'>Sports stuff</option>
+						      <option value='toys'>Toys</option>
+						      <option value='whatever'>Whatever?</option>
+					    </input><br/>
+					    <input ref='user' label='username' placeholder='Choose a username' /><br/>
+					    <input ref="email" type="text" label="Email address" placeholder="dude@coolguy.com"/><br/>	
+						<input ref="phone" type="text" label="Phone" placeholder="512-555-5555"/><br/>	
+						<input ref="address" type="text" label="Street address" placeholder="123 Janky Dr"/><br/>	
+						<input ref="zip" type="text" label="Zipcode" placeholder="78704"/><br/>	
 
-				//     //upload image here
-				//     <button type="submit" className="btn btn-primary">Login</button>
-				// </form>
-           
-          </div>
-        );
-    }
+						<button type='submit' value='Submit Button' />
+					</form>
+		);
+	},
+
+	submitListing: function(e) {
+		e.preventDefault();
+		var listingSubmit = new ListModel({
+			title: this.refs.title.getDOMNode().value,
+			description: this.refs.description.getDOMNode().value,
+			itemCondition: this.refs.condition.getDOMNode().value,
+			category: this.refs.category.getDOMNode().value,
+			userName: this.refs.user.getDOMNode().value,
+			userEmail: this.refs.email.getDOMNode().value,
+			userPhone: this.refs.phone.getDOMNode().value,
+			userAddress: this.refs.address.getDOMNode().value,
+			userZip: this.refs.zip.getDOMNode().value,
+
+		})
+
+	}
+				
+				
+	
 });

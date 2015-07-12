@@ -4,14 +4,14 @@ Backbone.$ = require('jquery');
 
 var containerEl = document.getElementById("container");
 
-var GiverDetail = require("./components/giverdetailcomponent");
-var ItemDetail = require("./components/itemdetailcomponent");
-var ListSuccess = require("./components/listsuccesscomponent");
+// var GiverDetail = require("./components/giverdetailcomponent");
+// var ItemDetail = require("./components/itemdetailcomponent");
+// var ListSuccess = require("./components/listsuccesscomponent");
 var ListThings = require("./components/listThingsComponent");
-var FindThingsList = require("./components/findthingslistcomponent");
-var FindThingsMap = require("./components/findThingsMapComponent");
-var AboutUs = require('./components/aboutUsComponent');
-var NavComponent = require('./components/navcomponent');
+// var FindThingsList = require("./components/findthingslistcomponent");
+// var FindThingsMap = require("./components/findThingsMapComponent");
+// var AboutUs = require('./components/aboutUsComponent');
+// var NavComponent = require('./components/navComponent');
 var HomePage = require("./components/homepagecomponent");
 
 var ListingCollection = require('./collections/listingCollection');
@@ -49,49 +49,49 @@ var App = Backbone.Router.extend({
 		 	
 		 );
 	},
-	findThingsMap: function() {
-		 React.render(
-		 	<FindThingsMap />,
-		 	containerEl
-		 );
-	},
-	findThingsList: function() {
-		// React.render(
-		// 	<FindThingsList />,
-		// 	containerEl
-		// );
-	},
-	itemDetail: function() {
-		// React.render(
-		// 	<ItemDetail />,
-		// 	containerEl
-		// );
-	},
-	giverDetail: function() {
-		// React.render(
-		// 	<GiverDetail />,
-		// 	containerEl
-		// );
-	},
+	// findThingsMap: function() {
+	// 	 React.render(
+	// 	 	<FindThingsMap />,
+	// 	 	containerEl
+	// 	 );
+	// },
+	// findThingsList: function() {
+	// // 	React.render(
+	// // 		<FindThingsList />,
+	// // 		containerEl
+	// // 	);
+	// // },
+	// itemDetail: function() {
+	// 	// React.render(
+	// 	// 	<ItemDetail />,
+	// 	// 	containerEl
+	// 	// );
+	// },
+	// giverDetail: function() {
+	// 	// React.render(
+	// 	// 	<GiverDetail />,
+	// 	// 	containerEl
+	// 	// );
+	// },
 	listThings: function() {
-		// React.render(
-		// 	<ListThings />,
-		// 	containerEl
-		// );
-	},
-	listSuccess: function() {
-		// React.render(
-		// 	<ListSuccess />,
-		// 	containerEl
-		// );
-	},
-	aboutUs: function() {
-		console.log('about us')
-		 React.render(
-		 	<AboutUs />,
-		 	containerEl
-		 );
+		React.render(
+			<ListThings />,
+			containerEl
+		);
 	}
+	// listSuccess: function() {
+	// 	// React.render(
+	// 	// 	<ListSuccess />,
+	// 	// 	containerEl
+	// 	// );
+	// },
+	// aboutUs: function() {
+	// 	console.log('about us')
+	// 	 React.render(
+	// 	 	<AboutUs />,
+	// 	 	containerEl
+	// 	 );
+	// }
 });
 
 var myApp = new App();

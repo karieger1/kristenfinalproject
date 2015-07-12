@@ -32752,114 +32752,6 @@ module.exports = React.createClass({
 	render: function render() {
 		return React.createElement(
 			"div",
-			{ className: "aboutUsSection" },
-			React.createElement(
-				"div",
-				{ className: "container" },
-				React.createElement(
-					"div",
-					{ className: "row" },
-					React.createElement(
-						"center",
-						null,
-						React.createElement(
-							"strong",
-							null,
-							React.createElement(
-								"h1",
-								null,
-								"About Us (or mainly me)"
-							)
-						)
-					),
-					React.createElement(
-						"p",
-						null,
-						"I wish I had a cool story for how TakeMyThings! came to be. But alas, the thought of creating a networking application that makes peoples' lives just a bit easier and more meaningful is something that just randomly occurred to me one evening (after a few drinks, most likely). It is the culmination of principles I learned from my parents, and opportunities I saw for myself."
-					),
-					React.createElement(
-						"p",
-						null,
-						"Ever since I was a wee child, my father was employed by, then subsequently owned and operated waste management (trash) companies. I grew up conscious of the overabundance of trash that our population produced. Things like recycling, composting, and re-using were not socio-political concepts in our household -- they were simply pragmatic ways of living. My mother brought her own tupperware to restaurants for her leftovers -- not because she was a styrofoam-hating hippie, but because it just made more sense. There was no talk of global warming or environmental science in our household -- there was just an underlying consciousness of the wastefulness that our species is prone to."
-					)
-				)
-			),
-			React.createElement(
-				"div",
-				{ className: "container" },
-				React.createElement(
-					"div",
-					{ className: "row" },
-					React.createElement(
-						"h3",
-						null,
-						"Who created this amazing piece of technology?!"
-					),
-					React.createElement(
-						"div",
-						{ className: "col-md-4 col-lg-4" },
-						React.createElement("img", { id: "mePic", src: "./images/kristentaco1.gif" })
-					),
-					React.createElement(
-						"div",
-						{ className: "col-md-8 col-lg-8" },
-						React.createElement(
-							"p",
-							{ className: "meAbout" },
-							" Hey! I'm Kristen. Born and bred Austinite. Recovering academic. I received my master's degree from Cambridge, then went on to UT Austin to pursue a PhD in the History of Science. A couple of years in, I decided this whole academic schtick was not for me. I wanted to do something more relevant. Which leads me to where I am now -- a front-end development student at the Iron Yard in Austin, TX. It's been quite a ride!"
-						)
-					)
-				)
-			)
-		);
-	}
-});
-
-},{"react":160}],163:[function(require,module,exports){
-'use strict';
-
-var React = require('react');
-
-module.exports = React.createClass({
-	displayName: 'exports',
-
-	render: function render() {
-		return React.createElement(
-			'div',
-			null,
-			'This is a highly sophisticated map.'
-		);
-	}
-});
-
-},{"react":160}],164:[function(require,module,exports){
-'use strict';
-
-var React = require('react');
-
-module.exports = React.createClass({
-	displayName: 'exports',
-
-	render: function render() {
-		return React.createElement(
-			'div',
-			null,
-			'Listing component.'
-		);
-	}
-});
-
-},{"react":160}],165:[function(require,module,exports){
-"use strict";
-
-var React = require("react");
-
-module.exports = React.createClass({
-	displayName: "exports",
-
-	render: function render() {
-		return React.createElement(
-			"div",
 			{ className: "jumbotron", id: "heading", styles: "background:transparent !important" },
 			React.createElement("body", { background: "../images/background.jpg" }),
 			React.createElement(
@@ -32950,85 +32842,9 @@ module.exports = React.createClass({
 	}
 });
 
-},{"react":160}],166:[function(require,module,exports){
+},{"react":160}],163:[function(require,module,exports){
 
-},{}],167:[function(require,module,exports){
-"use strict";
-
-var React = require("react");
-
-module.exports = React.createclassName({
-				render: function render() {
-								return (
-												// <!-- Navigation -->
-												React.createElement(
-																"nav",
-																{ className: "navbar navbar-custom navbar-fixed-top", role: "navigation" },
-																React.createElement(
-																				"div",
-																				{ className: "container", id: "navbar" },
-																				React.createElement(
-																								"div",
-																								{ className: "navbar-header" },
-																								React.createElement(
-																												"button",
-																												{ type: "button", className: "navbar-toggle", "data-toggle": "collapse", "data-target": ".navbar-main-collapse" },
-																												React.createElement("i", { className: "fa fa-bars" })
-																								),
-																								React.createElement(
-																												"a",
-																												{ className: "navbar-brand page-scroll", href: "#home" },
-																												"TakeMyThings!"
-																								)
-																				),
-																				"//  Collect the nav links, forms, and other content for toggling",
-																				React.createElement(
-																								"div",
-																								{ className: "collapse navbar-collapse navbar-right navbar-main-collapse" },
-																								React.createElement(
-																												"ul",
-																												{ className: "nav navbar-nav" },
-																												React.createElement(
-																																"li",
-																																{ className: "hidden" },
-																																React.createElement("a", { href: "#page-top" })
-																												),
-																												React.createElement(
-																																"li",
-																																null,
-																																React.createElement(
-																																				"a",
-																																				{ className: "page-scroll", href: "#findThings" },
-																																				"Find Things"
-																																)
-																												),
-																												React.createElement(
-																																"li",
-																																null,
-																																React.createElement(
-																																				"a",
-																																				{ className: "page-scroll", href: "#listThings" },
-																																				"Get Rid of Things"
-																																)
-																												),
-																												React.createElement(
-																																"li",
-																																null,
-																																React.createElement(
-																																				"a",
-																																				{ className: "page-scroll", href: "#aboutUs" },
-																																				"About Us"
-																																)
-																												)
-																								)
-																				)
-																)
-												)
-								);
-				}
-});
-
-},{"react":160}],168:[function(require,module,exports){
+},{}],164:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -33037,11 +32853,14 @@ Backbone.$ = require('jquery');
 
 var containerEl = document.getElementById('container');
 
+// var GiverDetail = require("./components/giverdetailcomponent");
+// var ItemDetail = require("./components/itemdetailcomponent");
+// var ListSuccess = require("./components/listsuccesscomponent");
 var ListThings = require('./components/listThingsComponent');
-var FindThingsList = require('./components/findthingslistcomponent');
-var FindThingsMap = require('./components/findThingsMapComponent');
-var AboutUs = require('./components/aboutUsComponent');
-var NavComponent = require('./components/navcomponent');
+// var FindThingsList = require("./components/findthingslistcomponent");
+// var FindThingsMap = require("./components/findThingsMapComponent");
+// var AboutUs = require('./components/aboutUsComponent');
+// var NavComponent = require('./components/navComponent');
 var HomePage = require('./components/homepagecomponent');
 
 var ListingCollection = require('./collections/listingCollection');
@@ -33065,7 +32884,7 @@ var App = Backbone.Router.extend({
 		'findThingsMap': 'findThingsMap',
 		'itemDetail': 'itemDetail',
 		'findThingsList': 'findThingsList',
-		'giverInfo': 'giverInfo',
+		'giverDetail': 'giverDetail',
 		'listThings': 'listThings',
 		'listSuccess': 'listSuccess',
 		'aboutUs': 'aboutUs'
@@ -33074,50 +32893,53 @@ var App = Backbone.Router.extend({
 	home: function home() {
 		React.render(React.createElement(HomePage, null), containerEl);
 	},
-	findThingsMap: function findThingsMap() {
-		React.render(React.createElement(FindThingsMap, null), containerEl);
-	},
-	findThingsList: function findThingsList() {},
-	itemDetail: function itemDetail() {},
-	giverInfo: function giverInfo() {},
-	listThings: function listThings() {},
-	listSuccess: function listSuccess() {},
-	aboutUs: function aboutUs() {
-		console.log('about us');
-		React.render(React.createElement(AboutUs, null), containerEl);
+	// findThingsMap: function() {
+	// 	 React.render(
+	// 	 	<FindThingsMap />,
+	// 	 	containerEl
+	// 	 );
+	// },
+	// findThingsList: function() {
+	// // 	React.render(
+	// // 		<FindThingsList />,
+	// // 		containerEl
+	// // 	);
+	// // },
+	// itemDetail: function() {
+	// 	// React.render(
+	// 	// 	<ItemDetail />,
+	// 	// 	containerEl
+	// 	// );
+	// },
+	// giverDetail: function() {
+	// 	// React.render(
+	// 	// 	<GiverDetail />,
+	// 	// 	containerEl
+	// 	// );
+	// },
+	listThings: function listThings() {
+		React.render(React.createElement(ListThings, null), containerEl);
 	}
+	// listSuccess: function() {
+	// 	// React.render(
+	// 	// 	<ListSuccess />,
+	// 	// 	containerEl
+	// 	// );
+	// },
+	// aboutUs: function() {
+	// 	console.log('about us')
+	// 	 React.render(
+	// 	 	<AboutUs />,
+	// 	 	containerEl
+	// 	 );
+	// }
 });
 
 var myApp = new App();
 
 Backbone.history.start();
 
-// React.render(
-// 	<CategoryPage />,
-// 	containerEl
-// );
-
-// React.render(
-// 	<CategoryPage />,
-// 	containerEl
-// );
-
-// React.render(
-// 	<CategoryPage />,
-// 	containerEl
-// );
-
-// React.render(
-// 	<ListThings />,
-// 	containerEl
-// );
-
-// React.render(
-// 	<SearchPage />,
-// 	containerEl
-// );
-
-},{"./collections/listingCollection":161,"./components/aboutUsComponent":162,"./components/findThingsMapComponent":163,"./components/findthingslistcomponent":164,"./components/homepagecomponent":165,"./components/listThingsComponent":166,"./components/navcomponent":167,"./models/listingModel":169,"backbone":1,"jquery":5,"react":160}],169:[function(require,module,exports){
+},{"./collections/listingCollection":161,"./components/homepagecomponent":162,"./components/listThingsComponent":163,"./models/listingModel":165,"backbone":1,"jquery":5,"react":160}],165:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backparse')({
@@ -33125,6 +32947,7 @@ var Backbone = require('backparse')({
 	apiKey: 'udxVtPHhV1pnBxfBHgkNEpMwv7OMTyLcM28KPLOC',
 	apiVersion: 1
 });
+
 var $ = require('jquery');
 Backbone.$ = $;
 
@@ -33145,11 +32968,12 @@ module.exports = Backbone.Model.extend({
 		userPhone: '',
 		userAddress: '',
 		userZip: null,
-		itemImage: ''
+		itemImage: '',
+		createdAt: null
 	}
 });
 
-},{"backparse":3,"jquery":5}]},{},[168])
+},{"backparse":3,"jquery":5}]},{},[164])
 
 
 //# sourceMappingURL=all.js.map

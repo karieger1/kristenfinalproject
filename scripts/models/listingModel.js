@@ -3,6 +3,7 @@ var Backbone = require('backparse')({
     apiKey: 'udxVtPHhV1pnBxfBHgkNEpMwv7OMTyLcM28KPLOC',
     apiVersion: 1
 });
+
 var $ = require("jquery");
 Backbone.$ = $;
 
@@ -23,6 +24,7 @@ module.exports = Backbone.Model.extend({
 		userPhone: "",
 		userAddress: "",
 		userZip: null,
-		itemImage: ""
+		itemImage: "",
+		createdAt: null
 	}
 });
