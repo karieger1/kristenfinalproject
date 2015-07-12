@@ -80,6 +80,7 @@ var App = Backbone.Router.extend({
 	// 	// );
 	// },
 	listThings: function() {
+		console.log('list things')
 		React.render(
 			<ListThings />,
 			containerEl

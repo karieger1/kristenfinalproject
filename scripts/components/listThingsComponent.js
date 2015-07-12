@@ -6,15 +6,14 @@ module.exports = React.createClass({
 	
 	render: function () {
 		return (
-			<div>
+			<div className="listingform">
 				<h1> List your item! </h1>
 				
-
 					<form onSubmit={this.submitListing}>
 						<input ref='title' label='title' placeholder='Title your listing' /><br/>
 						<textarea ref='description' label="description">Describe your free thing!</textarea><br/>
-						<input ref='condition' label='itemCondition' placeholder="Working, not working?" /></br>
-						<input ref='category' label='category' placeholder='Category'>
+						<input ref='condition' label='itemCondition' placeholder="Working, not working?" /><br/>
+						<input ref='category' label='category' placeholder='Category' >
 						      <option value='select'>Please select</option>
 						      <option value='apparel'>Apparel/shoes</option>
 						      <option value='bicycles'>Bicycles</option>
@@ -36,6 +35,8 @@ module.exports = React.createClass({
 
 						<button type='submit' value='Submit Button' />
 					</form>
+					
+			</div>	
 		);
 	},
 
