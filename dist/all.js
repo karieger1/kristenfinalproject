@@ -32752,8 +32752,85 @@ module.exports = React.createClass({
 	render: function render() {
 		return React.createElement(
 			"div",
-			{ className: "jumbotron", id: "heading", styles: "background:transparent !important" },
-			React.createElement("body", { background: "../images/background.jpg" }),
+			{ className: "aboutUsSection" },
+			React.createElement(
+				"div",
+				{ className: "container" },
+				React.createElement(
+					"div",
+					{ className: "row" },
+					React.createElement(
+						"center",
+						null,
+						React.createElement(
+							"strong",
+							null,
+							React.createElement(
+								"h1",
+								{ id: "aboutme" },
+								"About Us (or mainly me)"
+							)
+						)
+					),
+					React.createElement(
+						"p",
+						null,
+						"I wish I had a cool story for how TakeMyThings! came to be. But alas, the thought of creating a networking application that makes peoples' lives just a bit easier and more meaningful is something that just randomly occurred to me one evening (after a few drinks, most likely). It is the culmination of principles I learned from my parents, and opportunities I saw for myself."
+					),
+					React.createElement(
+						"p",
+						null,
+						"Ever since I was a wee child, my father was employed by, then subsequently owned and operated waste management (trash) companies. I grew up conscious of the overabundance of trash that our population produced. Things like recycling, composting, and re-using were not socio-political concepts in our household -- they were simply pragmatic ways of living. My mother brought her own tupperware to restaurants for her leftovers -- not because she was a styrofoam-hating hippie, but because it just made more sense. There was no talk of global warming or environmental science in our household -- there was just an underlying consciousness of the wastefulness that our species is prone to."
+					)
+				)
+			),
+			React.createElement(
+				"div",
+				{ className: "container" },
+				React.createElement(
+					"div",
+					{ className: "row" },
+					React.createElement(
+						"center",
+						null,
+						React.createElement(
+							"h3",
+							null,
+							"Who created this amazing piece of technology?!"
+						)
+					),
+					React.createElement(
+						"div",
+						{ className: "col-md-4 col-lg-4" },
+						React.createElement("img", { id: "mePic", src: "./images/kristentaco1.gif" })
+					),
+					React.createElement(
+						"div",
+						{ className: "col-md-8 col-lg-8" },
+						React.createElement(
+							"p",
+							{ className: "meAbout" },
+							" Hey! I'm Kristen. Born and bred Austinite. Recovering academic. I received my master's degree from Cambridge, then went on to UT Austin to pursue a PhD in the History of Science. A couple of years in, I decided this whole academic schtick was not for me. I wanted to do something more relevant. Which leads me to where I am now -- a front-end development student at the Iron Yard in Austin, TX. It's been quite a ride!"
+						)
+					)
+				)
+			)
+		);
+	}
+});
+
+},{"react":160}],163:[function(require,module,exports){
+"use strict";
+
+var React = require("react");
+
+module.exports = React.createClass({
+	displayName: "exports",
+
+	render: function render() {
+		return React.createElement(
+			"div",
+			{ className: "mainheading", id: "heading", styles: "background:transparent !important" },
 			React.createElement(
 				"strong",
 				null,
@@ -32819,7 +32896,7 @@ module.exports = React.createClass({
 					"Our goals are threefold:",
 					React.createElement(
 						"ul",
-						{ "class": "tmtgoals" },
+						{ className: "tmtgoals" },
 						React.createElement(
 							"li",
 							null,
@@ -32842,14 +32919,20 @@ module.exports = React.createClass({
 	}
 });
 
-},{"react":160}],163:[function(require,module,exports){
+},{"react":160}],164:[function(require,module,exports){
 
-},{}],164:[function(require,module,exports){
+},{}],165:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
-var Backbone = require('backbone');
-Backbone.$ = require('jquery');
+var Backbone = require('backparse')({
+	appId: 'yJiZubO8JLzfUFse2nvE3MBFaO6o9IJSSzXSiOdi',
+	apiKey: 'udxVtPHhV1pnBxfBHgkNEpMwv7OMTyLcM28KPLOC',
+	apiVersion: 1
+});
+
+var $ = require('jquery');
+Backbone.$ = $;
 
 var containerEl = document.getElementById('container');
 
@@ -32859,7 +32942,7 @@ var containerEl = document.getElementById('container');
 var ListThings = require('./components/listThingsComponent');
 // var FindThingsList = require("./components/findthingslistcomponent");
 // var FindThingsMap = require("./components/findThingsMapComponent");
-// var AboutUs = require('./components/aboutUsComponent');
+var AboutUs = require('./components/aboutUsComponent');
 // var NavComponent = require('./components/navComponent');
 var HomePage = require('./components/homepagecomponent');
 
@@ -32919,27 +33002,24 @@ var App = Backbone.Router.extend({
 	// },
 	listThings: function listThings() {
 		React.render(React.createElement(ListThings, null), containerEl);
-	}
+	},
 	// listSuccess: function() {
 	// 	// React.render(
 	// 	// 	<ListSuccess />,
 	// 	// 	containerEl
 	// 	// );
 	// },
-	// aboutUs: function() {
-	// 	console.log('about us')
-	// 	 React.render(
-	// 	 	<AboutUs />,
-	// 	 	containerEl
-	// 	 );
-	// }
+	aboutUs: function aboutUs() {
+		console.log('about us');
+		React.render(React.createElement(AboutUs, null), containerEl);
+	}
 });
 
 var myApp = new App();
 
 Backbone.history.start();
 
-},{"./collections/listingCollection":161,"./components/homepagecomponent":162,"./components/listThingsComponent":163,"./models/listingModel":165,"backbone":1,"jquery":5,"react":160}],165:[function(require,module,exports){
+},{"./collections/listingCollection":161,"./components/aboutUsComponent":162,"./components/homepagecomponent":163,"./components/listThingsComponent":164,"./models/listingModel":166,"backparse":3,"jquery":5,"react":160}],166:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backparse')({
@@ -32973,7 +33053,7 @@ module.exports = Backbone.Model.extend({
 	}
 });
 
-},{"backparse":3,"jquery":5}]},{},[164])
+},{"backparse":3,"jquery":5}]},{},[165])
 
 
 //# sourceMappingURL=all.js.map

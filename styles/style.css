@@ -1,4 +1,4 @@
-#page-top {
+.mainheading {
 	font-family: Courier;
 	
 	background-image: url("../images/background.jpg")
@@ -21,11 +21,26 @@
 	text-shadow:#fff 1px 3px 0, #000 0 -1px 0;
 	font-size: 66px;
 	letter-spacing: -2px;
+	color: white;
+	text-shadow:
+	    3px 3px 0 #000,
+	   -1px -1px 0 #000,  
+	    1px -1px 0 #000,
+	   -1px  1px 0 #000,
+	    1px  1px 0 #000;
 }
 
 #tmt {
 	letter-spacing: -1px;
 	margin-bottom: 2em;
+	color:white;
+	font-size: 20px;	
+	text-shadow:
+	    3px 3px 0 #000,
+	   -1px -1px 0 #000,  
+	    1px -1px 0 #000,
+	   -1px  1px 0 #000,
+	    1px  1px 0 #000;
 }
 
 #button1 {
@@ -36,6 +51,19 @@
 	background-color: black;
 	opacity: 0.7;
 	padding: 20px;
+	width: 220px;
+	height: 70px;	
+}
+
+#button1:hover {
+	background-color: turquoise;
+	font-weight: bolder;
+	text-shadow:
+	    3px 3px 0 #000,
+	   -1px -1px 0 #000,  
+	    1px -1px 0 #000,
+	   -1px  1px 0 #000,
+	    1px  1px 0 #000;
 }
 
 #button2 {
@@ -46,11 +74,20 @@
 	background-color: black;
 	opacity: 0.7;
 	padding: 20px;
+	width: 220px;
+	height: 70px;
 
 }
 
-.jumbotron {
-	color: white !important;
+#button2:hover {
+	background-color: turquoise;
+	font-weight: bolder;
+	text-shadow:
+	    3px 3px 0 #000,
+	   -1px -1px 0 #000,  
+	    1px -1px 0 #000,
+	   -1px  1px 0 #000,
+	    1px  1px 0 #000;
 }
 
 #navbar {
@@ -63,11 +100,16 @@
 }
 
 #goals {
-	margin-top: 40px;
-	font-size:18px;
+	margin-top: 100px;
+	font-size:16px;
 	border: solid white 2px;
-	
+	border-radius: 50%;
 	width: 300px;
+	height: 200px;
+	text-align: center;
+	padding-top: 60px;
+	clear: both;
+	color: white;
 
 }
 ul {
@@ -77,8 +119,27 @@ ul {
 .aboutUsSection {
 	color: white;
 	padding-top: 4em;
-	background-color: black;
-	opacity: 0.7;
+	background-image: url("../images/background.jpg");
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+#aboutme {
+	text-shadow:
+	    3px 3px 0 #000,
+	   -1px -1px 0 #000,  
+	    1px -1px 0 #000,
+	   -1px  1px 0 #000,
+	    1px  1px 0 #000;
+}
+
+h3 {
+	text-shadow:
+	    3px 3px 0 #000,
+	   -1px -1px 0 #000,  
+	    1px -1px 0 #000,
+	   -1px  1px 0 #000,
+	    1px  1px 0 #000;
 }
 
 #mePic {
@@ -86,7 +147,7 @@ ul {
 	width: 9em;
 	opacity: 1.0 !important;
 	float: left;
-	/*margin-right: 10px;*/
+	margin-right: 10px;
 	margin-left: 20px;
 }
 

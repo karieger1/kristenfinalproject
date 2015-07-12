@@ -3,8 +3,8 @@ var React = require('react');
 module.exports = React.createClass ({
 	render: function () {
 		return (
-			<div className="jumbotron" id="heading" styles="background:transparent !important">
-		    	<body background="../images/background.jpg" /> 
+			<div className="mainheading" id="heading" styles="background:transparent !important">
+		    	
 			
 
 					<strong><center><h1 id="logo">Take My Things!</h1></center></strong>
@@ -22,7 +22,7 @@ module.exports = React.createClass ({
 					  <center><p><a className="btn btn-primary btn-lg" id="button2" href="#findThingsMap" role="button">Find things</a></p></center>
 
 				<center><section id="goals">Our goals are threefold:
-					<ul class="tmtgoals">
+					<ul className="tmtgoals">
 						<li>1. Reduce waste</li>
 						<li>2. Help others</li>
 						<li>3. Have fun!</li>

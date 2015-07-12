@@ -1,6 +1,12 @@
 var React = require('react');
-var Backbone = require('backbone');
-Backbone.$ = require('jquery');
+var Backbone = require('backparse')({
+	appId: 'yJiZubO8JLzfUFse2nvE3MBFaO6o9IJSSzXSiOdi',
+	apiKey: 'udxVtPHhV1pnBxfBHgkNEpMwv7OMTyLcM28KPLOC',
+	apiVersion: 1
+});
+
+var $ = require('jquery');
+Backbone.$ = $
 
 var containerEl = document.getElementById("container");
 
@@ -10,7 +16,7 @@ var containerEl = document.getElementById("container");
 var ListThings = require("./components/listThingsComponent");
 // var FindThingsList = require("./components/findthingslistcomponent");
 // var FindThingsMap = require("./components/findThingsMapComponent");
-// var AboutUs = require('./components/aboutUsComponent');
+var AboutUs = require('./components/aboutUsComponent');
 // var NavComponent = require('./components/navComponent');
 var HomePage = require("./components/homepagecomponent");
 
@@ -78,20 +84,20 @@ var App = Backbone.Router.extend({
 			<ListThings />,
 			containerEl
 		);
-	}
+	},
 	// listSuccess: function() {
 	// 	// React.render(
 	// 	// 	<ListSuccess />,
 	// 	// 	containerEl
 	// 	// );
 	// },
-	// aboutUs: function() {
-	// 	console.log('about us')
-	// 	 React.render(
-	// 	 	<AboutUs />,
-	// 	 	containerEl
-	// 	 );
-	// }
+	aboutUs: function() {
+		console.log('about us')
+		 React.render(
+		 	<AboutUs />,
+		 	containerEl
+		 );
+	}
 });
 
 var myApp = new App();

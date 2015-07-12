@@ -7,7 +7,7 @@ module.exports = React.createClass ({
 				<div className="container">
 					<div className="row">
 
-					 	<center><strong><h1>About Us (or mainly me)</h1></strong></center>
+					 	<center><strong><h1 id="aboutme">About Us (or mainly me)</h1></strong></center>
 
 							<p>I wish I had a cool story for how TakeMyThings! came to be. But alas, the thought of creating a networking application
 							that makes peoples' lives just a bit easier and more meaningful is something that just randomly occurred to me one evening (after 
@@ -23,7 +23,7 @@ module.exports = React.createClass ({
 					</div>
 				</div>
 				<div className="container">
-					<div className="row"><h3>Who created this amazing piece of technology?!</h3>
+					<div className="row"><center><h3>Who created this amazing piece of technology?!</h3></center>
 						<div className="col-md-4 col-lg-4">
 							<img id="mePic" src="./images/kristentaco1.gif" />
 						</div>
