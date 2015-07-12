@@ -33707,7 +33707,7 @@ module.exports = React.createClass({
 				React.createElement('br', null),
 				React.createElement(
 					'input',
-					{ ref: 'category', label: 'category', placeholder: 'Category' },
+					{ ref: 'category', label: 'select', placeholder: 'Category' },
 					React.createElement(
 						'option',
 						{ value: 'select' },
@@ -33780,7 +33780,11 @@ module.exports = React.createClass({
 				React.createElement('br', null),
 				React.createElement('input', { ref: 'zip', type: 'text', label: 'Zipcode', placeholder: '78704' }),
 				React.createElement('br', null),
-				React.createElement('button', { type: 'submit', value: 'Submit Button' })
+				React.createElement(
+					'button',
+					{ type: 'submit', value: 'Submit Button' },
+					'submit your listing '
+				)
 			)
 		);
 	},
@@ -33799,11 +33803,47 @@ module.exports = React.createClass({
 			userZip: this.refs.zip.getDOMNode().value
 
 		});
+
+		listingSubmit.save(null, {
+			success: function success(ListModel) {
+				app.navigate('listSuccess', { trigger: true });
+			}
+		});
 	}
 
 });
 
-},{"../models/listingModel":167,"react":160,"validator":161}],166:[function(require,module,exports){
+},{"../models/listingModel":168,"react":160,"validator":161}],166:[function(require,module,exports){
+"use strict";
+
+var React = require("react");
+
+module.exports = React.createClass({
+	displayName: "exports",
+
+	render: function render() {
+		return React.createElement(
+			"div",
+			{ className: "listSuccess" },
+			React.createElement(
+				"h3",
+				null,
+				"Great success!"
+			),
+			React.createElement(
+				"p",
+				null,
+				"Your item is now listed on the TakeMyThings! website. ",
+				React.createElement("br", null),
+				"You should receive an email within the next few minutes that allows you to delete your posting once your item has been picked up. Remember, it is your responsibility to do so!",
+				React.createElement("br", null),
+				"Thanks so much for using TakeMyThings! You've done your good deed for the day. Carry on!"
+			)
+		);
+	}
+});
+
+},{"react":160}],167:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -33820,7 +33860,7 @@ var containerEl = document.getElementById('container');
 
 // var GiverDetail = require("./components/giverdetailcomponent");
 // var ItemDetail = require("./components/itemdetailcomponent");
-// var ListSuccess = require("./components/listsuccesscomponent");
+var ListSuccess = require('./components/listsuccesscomponent');
 var ListThings = require('./components/listThingsComponent');
 // var FindThingsList = require("./components/findthingslistcomponent");
 // var FindThingsMap = require("./components/findThingsMapComponent");
@@ -33886,12 +33926,9 @@ var App = Backbone.Router.extend({
 		console.log('list things');
 		React.render(React.createElement(ListThings, null), containerEl);
 	},
-	// listSuccess: function() {
-	// 	// React.render(
-	// 	// 	<ListSuccess />,
-	// 	// 	containerEl
-	// 	// );
-	// },
+	listSuccess: function listSuccess() {
+		React.render(React.createElement(ListSuccess, null), containerEl);
+	},
 	aboutUs: function aboutUs() {
 		console.log('about us');
 		React.render(React.createElement(AboutUs, null), containerEl);
@@ -33902,7 +33939,7 @@ var myApp = new App();
 
 Backbone.history.start();
 
-},{"./collections/listingCollection":162,"./components/aboutUsComponent":163,"./components/homepagecomponent":164,"./components/listThingsComponent":165,"./models/listingModel":167,"backparse":3,"jquery":5,"react":160}],167:[function(require,module,exports){
+},{"./collections/listingCollection":162,"./components/aboutUsComponent":163,"./components/homepagecomponent":164,"./components/listThingsComponent":165,"./components/listsuccesscomponent":166,"./models/listingModel":168,"backparse":3,"jquery":5,"react":160}],168:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backparse')({
@@ -33936,7 +33973,7 @@ module.exports = Backbone.Model.extend({
 	}
 });
 
-},{"backparse":3,"jquery":5}]},{},[166])
+},{"backparse":3,"jquery":5}]},{},[167])
 
 
 //# sourceMappingURL=all.js.map

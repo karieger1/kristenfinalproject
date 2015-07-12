@@ -13,7 +13,7 @@ module.exports = React.createClass({
 						<input ref='title' label='title' placeholder='Title your listing' /><br/>
 						<textarea ref='description' label="description">Describe your free thing!</textarea><br/>
 						<input ref='condition' label='itemCondition' placeholder="Working, not working?" /><br/>
-						<input ref='category' label='category' placeholder='Category' >
+						<input ref='category' label='select' placeholder='Category' >
 						      <option value='select'>Please select</option>
 						      <option value='apparel'>Apparel/shoes</option>
 						      <option value='bicycles'>Bicycles</option>
@@ -33,7 +33,7 @@ module.exports = React.createClass({
 						<input ref="address" type="text" label="Street address" placeholder="123 Janky Dr"/><br/>	
 						<input ref="zip" type="text" label="Zipcode" placeholder="78704"/><br/>	
 
-						<button type='submit' value='Submit Button' />
+						<button type='submit' value='Submit Button'>submit your listing </button>
 					</form>
 					
 			</div>	
@@ -53,10 +53,14 @@ module.exports = React.createClass({
 			userAddress: this.refs.address.getDOMNode().value,
 			userZip: this.refs.zip.getDOMNode().value,
 
-		})
+		});
 
-	}
-				
+		listingSubmit.save(null,{
+				success: function(ListModel) {
+					app.navigate('listSuccess', {trigger: true});
+				}
+			})
+		}
 				
 	
 });

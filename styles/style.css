@@ -155,3 +155,11 @@ h3 {
 	/*margin-left: 10px;*/
 	overflow: hidden;
 }
+
+.listSuccess {
+	color: white;
+	padding-top: 4em;
+	background-image: url("../images/background.jpg");
+	padding-left: 20px;
+	padding-right: 20px;
+}

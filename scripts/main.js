@@ -12,7 +12,7 @@ var containerEl = document.getElementById("container");
 
 // var GiverDetail = require("./components/giverdetailcomponent");
 // var ItemDetail = require("./components/itemdetailcomponent");
-// var ListSuccess = require("./components/listsuccesscomponent");
+var ListSuccess = require("./components/listsuccesscomponent");
 var ListThings = require("./components/listThingsComponent");
 // var FindThingsList = require("./components/findthingslistcomponent");
 // var FindThingsMap = require("./components/findThingsMapComponent");
@@ -86,12 +86,12 @@ var App = Backbone.Router.extend({
 			containerEl
 		);
 	},
-	// listSuccess: function() {
-	// 	// React.render(
-	// 	// 	<ListSuccess />,
-	// 	// 	containerEl
-	// 	// );
-	// },
+	listSuccess: function() {
+		React.render(
+			<ListSuccess />,
+			containerEl
+		);
+	},
 	aboutUs: function() {
 		console.log('about us')
 		 React.render(
