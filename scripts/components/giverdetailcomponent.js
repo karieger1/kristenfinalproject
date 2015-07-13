@@ -4,7 +4,14 @@ module.exports = React.createClass({
 	render: function () {
 		return (
 			<div>
-				Will display giver's contact info.
+				<form name="giverdetails">
+					Giver name: //data
+					Givers email: //data 
+					Givers phone: //data
+					Givers address: //data
+					Pick up or text first? //data	
+				</form>	
+
 			</div>
 		);
 	}

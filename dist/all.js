@@ -33493,9 +33493,18 @@ module.exports = require('./lib/React');
 });
 
 },{}],162:[function(require,module,exports){
-"use strict";
+'use strict';
 
-},{}],163:[function(require,module,exports){
+var Backbone = require('backbone');
+Backbone.$ = require('jquery');
+var ListingModel = require('../models/listingModel');
+
+var listingCollection = Backbone.Collection.extend({
+    model: ListingModel,
+    parseClassName: 'listing'
+});
+
+},{"../models/listingModel":173,"backbone":1,"jquery":5}],163:[function(require,module,exports){
 "use strict";
 
 var React = require("react");
@@ -33574,6 +33583,61 @@ module.exports = React.createClass({
 });
 
 },{"react":160}],164:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+
+module.exports = React.createClass({
+	displayName: 'exports',
+
+	render: function render() {
+		return React.createElement(
+			'div',
+			null,
+			'This is a highly sophisticated map.'
+		);
+	}
+});
+
+},{"react":160}],165:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+
+module.exports = React.createClass({
+	displayName: 'exports',
+
+	render: function render() {
+		return React.createElement(
+			'div',
+			null,
+			'Find things list view.'
+		);
+	}
+});
+
+},{"react":160}],166:[function(require,module,exports){
+"use strict";
+
+var React = require("react");
+
+module.exports = React.createClass({
+	displayName: "exports",
+
+	render: function render() {
+		return React.createElement(
+			"div",
+			null,
+			React.createElement(
+				"form",
+				{ name: "giverdetails" },
+				"Giver name: //data Givers email: //data Givers phone: //data Givers address: //data Pick up or text first? //data"
+			)
+		);
+	}
+});
+
+},{"react":160}],167:[function(require,module,exports){
 "use strict";
 
 var React = require("react");
@@ -33673,12 +33737,29 @@ module.exports = React.createClass({
 	}
 });
 
-},{"react":160}],165:[function(require,module,exports){
+},{"react":160}],168:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+
+module.exports = React.createClass({
+	displayName: 'exports',
+
+	render: function render() {
+		return React.createElement(
+			'div',
+			null,
+			'Highly important information about item.'
+		);
+	}
+});
+
+},{"react":160}],169:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
 var validator = require('validator');
-var ListModel = require('../models/listingModel');
+var ListingModel = require('../models/listingModel');
 
 module.exports = React.createClass({
 	displayName: 'exports',
@@ -33813,7 +33894,7 @@ module.exports = React.createClass({
 
 });
 
-},{"../models/listingModel":168,"react":160,"validator":161}],166:[function(require,module,exports){
+},{"../models/listingModel":173,"react":160,"validator":161}],170:[function(require,module,exports){
 "use strict";
 
 var React = require("react");
@@ -33843,7 +33924,83 @@ module.exports = React.createClass({
 	}
 });
 
-},{"react":160}],167:[function(require,module,exports){
+},{"react":160}],171:[function(require,module,exports){
+"use strict";
+
+var React = require("react");
+
+module.exports = React.createclassName({
+				render: function render() {
+								return (
+												// <!-- Navigation -->
+												React.createElement(
+																"nav",
+																{ className: "navbar navbar-custom navbar-fixed-top", role: "navigation" },
+																React.createElement(
+																				"div",
+																				{ className: "container", id: "navbar" },
+																				React.createElement(
+																								"div",
+																								{ className: "navbar-header" },
+																								React.createElement(
+																												"button",
+																												{ type: "button", className: "navbar-toggle", "data-toggle": "collapse", "data-target": ".navbar-main-collapse" },
+																												React.createElement("i", { className: "fa fa-bars" })
+																								),
+																								React.createElement(
+																												"a",
+																												{ className: "navbar-brand page-scroll", href: "#home" },
+																												"TakeMyThings!"
+																								)
+																				),
+																				"//  Collect the nav links, forms, and other content for toggling",
+																				React.createElement(
+																								"div",
+																								{ className: "collapse navbar-collapse navbar-right navbar-main-collapse" },
+																								React.createElement(
+																												"ul",
+																												{ className: "nav navbar-nav" },
+																												React.createElement(
+																																"li",
+																																{ className: "hidden" },
+																																React.createElement("a", { href: "#page-top" })
+																												),
+																												React.createElement(
+																																"li",
+																																null,
+																																React.createElement(
+																																				"a",
+																																				{ className: "page-scroll", href: "#findThings" },
+																																				"Find Things"
+																																)
+																												),
+																												React.createElement(
+																																"li",
+																																null,
+																																React.createElement(
+																																				"a",
+																																				{ className: "page-scroll", href: "#listThings" },
+																																				"Get Rid of Things"
+																																)
+																												),
+																												React.createElement(
+																																"li",
+																																null,
+																																React.createElement(
+																																				"a",
+																																				{ className: "page-scroll", href: "#aboutUs" },
+																																				"About Us"
+																																)
+																												)
+																								)
+																				)
+																)
+												)
+								);
+				}
+});
+
+},{"react":160}],172:[function(require,module,exports){
 'use strict';
 
 var React = require('react');
@@ -33858,26 +34015,21 @@ Backbone.$ = $;
 
 var containerEl = document.getElementById('container');
 
-// var GiverDetail = require("./components/giverdetailcomponent");
-// var ItemDetail = require("./components/itemdetailcomponent");
+var GiverDetail = require('./components/giverdetailcomponent');
+var ItemDetail = require('./components/itemdetailcomponent');
 var ListSuccess = require('./components/listsuccesscomponent');
 var ListThings = require('./components/listThingsComponent');
-// var FindThingsList = require("./components/findthingslistcomponent");
-// var FindThingsMap = require("./components/findThingsMapComponent");
+var FindThingsList = require('./components/findthingslistcomponent');
+var FindThingsMap = require('./components/findThingsMapComponent');
 var AboutUs = require('./components/aboutUsComponent');
-// var NavComponent = require('./components/navComponent');
+var NavComponent = require('./components/navComponent');
 var HomePage = require('./components/homepagecomponent');
 
 var ListingCollection = require('./collections/listingCollection');
 
-var listingModel = require('./models/listingModel');
+var ListingModel = require('./models/listingModel');
 
-//render navbar
-
-// React.render(
-// 	<NavComponent />,
-//  	document.getElementById("navbar")
-//  	);
+React.render(React.createElement(NavComponent, { myApp: myApp }), document.getElementById('navbar'));
 
 //set up router:
 
@@ -33898,30 +34050,18 @@ var App = Backbone.Router.extend({
 	home: function home() {
 		React.render(React.createElement(HomePage, null), containerEl);
 	},
-	// findThingsMap: function() {
-	// 	 React.render(
-	// 	 	<FindThingsMap />,
-	// 	 	containerEl
-	// 	 );
-	// },
-	// findThingsList: function() {
-	// // 	React.render(
-	// // 		<FindThingsList />,
-	// // 		containerEl
-	// // 	);
-	// // },
-	// itemDetail: function() {
-	// 	// React.render(
-	// 	// 	<ItemDetail />,
-	// 	// 	containerEl
-	// 	// );
-	// },
-	// giverDetail: function() {
-	// 	// React.render(
-	// 	// 	<GiverDetail />,
-	// 	// 	containerEl
-	// 	// );
-	// },
+	findThingsMap: function findThingsMap() {
+		React.render(React.createElement(FindThingsMap, null), containerEl);
+	},
+	findThingsList: function findThingsList() {
+		React.render(React.createElement(FindThingsList, null), containerEl);
+	},
+	itemDetail: function itemDetail() {
+		React.render(React.createElement(ItemDetail, null), containerEl);
+	},
+	giverDetail: function giverDetail() {
+		React.render(React.createElement(GiverDetail, null), containerEl);
+	},
 	listThings: function listThings() {
 		console.log('list things');
 		React.render(React.createElement(ListThings, null), containerEl);
@@ -33939,41 +34079,44 @@ var myApp = new App();
 
 Backbone.history.start();
 
-},{"./collections/listingCollection":162,"./components/aboutUsComponent":163,"./components/homepagecomponent":164,"./components/listThingsComponent":165,"./components/listsuccesscomponent":166,"./models/listingModel":168,"backparse":3,"jquery":5,"react":160}],168:[function(require,module,exports){
+},{"./collections/listingCollection":162,"./components/aboutUsComponent":163,"./components/findThingsMapComponent":164,"./components/findthingslistcomponent":165,"./components/giverdetailcomponent":166,"./components/homepagecomponent":167,"./components/itemdetailcomponent":168,"./components/listThingsComponent":169,"./components/listsuccesscomponent":170,"./components/navComponent":171,"./models/listingModel":173,"backparse":3,"jquery":5,"react":160}],173:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backparse')({
-	appId: 'yJiZubO8JLzfUFse2nvE3MBFaO6o9IJSSzXSiOdi',
-	apiKey: 'udxVtPHhV1pnBxfBHgkNEpMwv7OMTyLcM28KPLOC',
-	apiVersion: 1
+				appId: 'yJiZubO8JLzfUFse2nvE3MBFaO6o9IJSSzXSiOdi',
+				apiKey: 'udxVtPHhV1pnBxfBHgkNEpMwv7OMTyLcM28KPLOC',
+				apiVersion: 1
 });
 
 var $ = require('jquery');
 Backbone.$ = $;
 
 module.exports = Backbone.Model.extend({
-	defaults: {
-		objectId: null,
-		title: '',
-		description: '',
-		itemCondition: '',
-		category: '',
-		location: {
-			'lat': null,
-			'long': null
-		}, //make this an object
-		userID: '',
-		userName: '',
-		userEmail: '',
-		userPhone: '',
-		userAddress: '',
-		userZip: null,
-		itemImage: '',
-		createdAt: null
-	}
+				defaults: {
+								objectId: null,
+								title: '',
+								description: '',
+								itemCondition: '',
+								category: '',
+								location: {
+												'lat': null,
+												'long': null
+								}, //make this an object
+								userID: '',
+								userName: '',
+								userEmail: '',
+								userPhone: '',
+								userAddress: '',
+								userZip: null,
+								itemImage: '',
+								createdAt: null
+				},
+
+				parseClassName: 'listing',
+				idAttribute: 'objectId'
 });
 
-},{"backparse":3,"jquery":5}]},{},[167])
+},{"backparse":3,"jquery":5}]},{},[172])
 
 
 //# sourceMappingURL=all.js.map

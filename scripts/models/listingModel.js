@@ -26,5 +26,8 @@ module.exports = Backbone.Model.extend({
 		userZip: null,
 		itemImage: "",
 		createdAt: null
-	}
+	},
+
+	parseClassName: 'listing',
+    idAttribute: 'objectId'
 });

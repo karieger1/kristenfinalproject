@@ -1,6 +1,7 @@
 var React = require('react'); 
 var validator = require('validator'); 
-var ListModel = require("../models/listingModel");
+var ListingModel = require("../models/listingModel");
+
 
 module.exports = React.createClass({
 	
