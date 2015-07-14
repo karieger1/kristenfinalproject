@@ -33758,29 +33758,33 @@ module.exports = React.createClass({
 				)
 			),
 			React.createElement(
-				"center",
-				null,
+				"div",
+				{ className: "goalscircle" },
 				React.createElement(
-					"section",
-					{ id: "goals" },
-					"Our goals are threefold:",
+					"center",
+					null,
 					React.createElement(
-						"ul",
-						{ className: "tmtgoals" },
+						"section",
+						{ id: "goals" },
+						"Our goals are threefold:",
 						React.createElement(
-							"li",
-							null,
-							"1. Reduce waste"
-						),
-						React.createElement(
-							"li",
-							null,
-							"2. Help others"
-						),
-						React.createElement(
-							"li",
-							null,
-							"3. Have fun!"
+							"ul",
+							{ className: "tmtgoals" },
+							React.createElement(
+								"li",
+								null,
+								"1. Reduce waste"
+							),
+							React.createElement(
+								"li",
+								null,
+								"2. Help others"
+							),
+							React.createElement(
+								"li",
+								null,
+								"3. Have fun!"
+							)
 						)
 					)
 				)
@@ -33848,139 +33852,213 @@ module.exports = React.createClass({
 			'div',
 			{ className: 'listingform' },
 			React.createElement(
-				'h1',
-				{ id: 'listitem' },
+				'div',
+				{ className: 'container' },
 				React.createElement(
 					'center',
 					null,
-					' List your item! '
-				)
-			),
-			React.createElement(
-				'form',
-				{ id: 'listform', onSubmit: this.submitListing },
-				'Listing title:',
-				React.createElement('input', { ref: 'title', label: 'title', placeholder: 'Laser pistol' }),
-				React.createElement('br', null),
-				'Describe your item:',
-				React.createElement('textarea', { ref: 'description', label: 'description', placeholder: 'It shoots laser beams.' }),
-				React.createElement('br', null),
-				'Item condition:',
-				React.createElement('input', { ref: 'condition', label: 'itemCondition', placeholder: 'It works 80% of the time.' }),
-				React.createElement('br', null),
-				'Choose a category:',
-				React.createElement(
-					'select',
-					{ ref: 'category' },
 					React.createElement(
-						'option',
-						{ value: 'select' },
-						'Please select'
-					),
-					React.createElement(
-						'option',
-						{ value: 'apparel' },
-						'Apparel/shoes'
-					),
-					React.createElement(
-						'option',
-						{ value: 'bicycles' },
-						'Bicycles'
-					),
-					React.createElement(
-						'option',
-						{ value: 'books' },
-						'Books'
-					),
-					React.createElement(
-						'option',
-						{ value: 'electronics' },
-						'Electronics'
-					),
-					React.createElement(
-						'option',
-						{ value: 'furniture' },
-						'Furniture'
-					),
-					React.createElement(
-						'option',
-						{ value: 'instruments' },
-						'Instruments'
-					),
-					React.createElement(
-						'option',
-						{ value: 'jewelry' },
-						'Jewelry'
-					),
-					React.createElement(
-						'option',
-						{ value: 'kids' },
-						'Kids stuff'
-					),
-					React.createElement(
-						'option',
-						{ value: 'sports' },
-						'Sports stuff'
-					),
-					React.createElement(
-						'option',
-						{ value: 'toys' },
-						'Toys'
-					),
-					React.createElement(
-						'option',
-						{ value: 'whatever' },
-						'Whatever?'
+						'h2',
+						{ id: 'listyouritem' },
+						'List your item!'
 					)
 				),
-				React.createElement('br', null),
-				'Your name:',
-				React.createElement('input', { ref: 'user', label: 'name', placeholder: 'Choose a username' }),
-				React.createElement('br', null),
-				'Email:',
-				React.createElement('input', { ref: 'email', type: 'text', label: 'Email address', placeholder: 'dude@coolguy.com' }),
-				React.createElement('br', null),
-				'Phone:',
-				React.createElement('input', { ref: 'phone', type: 'text', label: 'Phone', placeholder: '512-555-5555' }),
-				React.createElement('br', null),
-				'Street address:',
-				React.createElement('input', { ref: 'address', type: 'text', label: 'Street address', placeholder: '123 Janky Dr' }),
-				React.createElement('br', null),
-				'Zipcode:',
-				React.createElement('input', { ref: 'zip', type: 'text', label: 'Zipcode', placeholder: '78704' }),
-				React.createElement('br', null),
 				React.createElement(
-					'button',
-					{ type: 'submit', value: 'Submit Button' },
-					'submit your listing '
+					'h3',
+					{ id: 'aboutyou' },
+					'About you:'
+				),
+				React.createElement(
+					'form',
+					{ role: 'form' },
+					React.createElement(
+						'div',
+						{ className: 'form-group' },
+						'Your name:',
+						React.createElement('input', { type: 'text', className: 'form-control', id: 'name', placeholder: 'Bo Jangles' })
+					),
+					React.createElement(
+						'div',
+						{ className: 'form-group', input: true, ref: 'email' },
+						'Email:',
+						React.createElement('input', { type: 'email', className: 'form-control', id: 'email', placeholder: 'bo@gmail.com' })
+					),
+					React.createElement(
+						'div',
+						{ className: 'form-group', input: true, ref: 'phone' },
+						'Phone number:',
+						React.createElement('input', { type: 'number', className: 'form-control', id: 'phone', placeholder: '512-555-5555' })
+					),
+					React.createElement(
+						'div',
+						{ className: 'form-group', input: true, ref: 'address' },
+						'Street address:',
+						React.createElement('input', { type: 'text', className: 'form-control', id: 'address', placeholder: '123 Dancing Dr' })
+					),
+					React.createElement(
+						'div',
+						{ className: 'form-group', input: true, ref: 'zip' },
+						'Zipcode:',
+						React.createElement('input', { type: 'number', className: 'form-control', id: 'zip', placeholder: '78704' })
+					),
+					React.createElement(
+						'h3',
+						{ id: 'aboutitem' },
+						'About your item:'
+					),
+					React.createElement(
+						'div',
+						{ className: 'form-group' },
+						'Choose a title for your listing:',
+						React.createElement('input', { type: 'text', className: 'form-control', id: 'title', placeholder: 'Toaster oven' })
+					),
+					React.createElement(
+						'div',
+						{ className: 'form-group', input: true, ref: 'description' },
+						'Describe your item:',
+						React.createElement('input', { type: 'text', className: 'form-control', id: 'description', placeholder: 'Bought two years ago. Still works great!' })
+					),
+					React.createElement(
+						'div',
+						{ className: 'form-group', input: true, ref: 'condition' },
+						'Item condition:',
+						React.createElement('input', { type: 'text', className: 'form-control', id: 'condition', placeholder: 'Works 80% of the time.' })
+					),
+					React.createElement(
+						'div',
+						{ className: 'form-group' },
+						'Choose a category:',
+						React.createElement(
+							'select',
+							{ ref: 'category', className: 'form-control', id: 'category' },
+							React.createElement(
+								'option',
+								{ value: 'select' },
+								'Please select'
+							),
+							React.createElement(
+								'option',
+								{ value: 'apparel' },
+								'Apparel/shoes'
+							),
+							React.createElement(
+								'option',
+								{ value: 'bicycles' },
+								'Bicycles'
+							),
+							React.createElement(
+								'option',
+								{ value: 'books' },
+								'Books'
+							),
+							React.createElement(
+								'option',
+								{ value: 'electronics' },
+								'Electronics'
+							),
+							React.createElement(
+								'option',
+								{ value: 'furniture' },
+								'Furniture'
+							),
+							React.createElement(
+								'option',
+								{ value: 'instruments' },
+								'Instruments'
+							),
+							React.createElement(
+								'option',
+								{ value: 'jewelry' },
+								'Jewelry'
+							),
+							React.createElement(
+								'option',
+								{ value: 'kids' },
+								'Kids stuff'
+							),
+							React.createElement(
+								'option',
+								{ value: 'sports' },
+								'Sports stuff'
+							),
+							React.createElement(
+								'option',
+								{ value: 'toys' },
+								'Toys'
+							),
+							React.createElement(
+								'option',
+								{ value: 'whatever' },
+								'Whatever?'
+							)
+						)
+					),
+					React.createElement(
+						'center',
+						null,
+						React.createElement(
+							'button',
+							{ type: 'button', id: 'submitlistingbutton', className: 'btn btn-primary' },
+							'Submit your listing'
+						)
+					)
 				)
 			)
 		);
-	},
-
-	submitListing: function submitListing(e) {
-		e.preventDefault();
-		var listingSubmit = new ListModel({
-			title: this.refs.title.getDOMNode().value,
-			description: this.refs.description.getDOMNode().value,
-			itemCondition: this.refs.condition.getDOMNode().value,
-			category: this.refs.category.getDOMNode().value,
-			userName: this.refs.user.getDOMNode().value,
-			userEmail: this.refs.email.getDOMNode().value,
-			userPhone: this.refs.phone.getDOMNode().value,
-			userAddress: this.refs.address.getDOMNode().value,
-			userZip: this.refs.zip.getDOMNode().value
-
-		});
-
-		listingSubmit.save(null, {
-			success: function success(ListModel) {
-				app.navigate('listSuccess', { trigger: true });
-			}
-		});
 	}
-
 });
+// <h1 id="listitem"><center> List your item! </center></h1>
+
+// 	<form id="listform" onSubmit={this.submitListing}>
+// 		<div className="input-group">
+// 			Listing title:<input ref='title' className="form-control" label='title' placeholder='Laser pistol' >
+// 		</div>
+// 		Describe your item:<textarea ref='description' label="description" placeholder="It shoots laser beams."></textarea><br/>
+// 		Item condition:<input ref='condition' label='itemCondition' placeholder="It works 80% of the time." /><br/>
+// 		Choose a category:<select ref='category'>
+// 		      <option value='select'>Please select</option>
+// 		      <option value='apparel'>Apparel/shoes</option>
+// 		      <option value='bicycles'>Bicycles</option>
+// 		      <option value='books'>Books</option>
+// 		      <option value='electronics'>Electronics</option>
+// 		      <option value='furniture'>Furniture</option>
+// 		      <option value='instruments'>Instruments</option>
+// 		      <option value='jewelry'>Jewelry</option>
+// 		      <option value='kids'>Kids stuff</option>
+// 		      <option value='sports'>Sports stuff</option>
+// 		      <option value='toys'>Toys</option>
+// 		      <option value='whatever'>Whatever?</option>
+// 	    </select><br/>
+// 	    Your name:<input ref='user' label='name' placeholder='Choose a username' /><br/>
+// 	    Email:<input ref="email" type="text" label="Email address" placeholder="dude@coolguy.com"/><br/>	
+// 		Phone:<input ref="phone" type="text" label="Phone" placeholder="512-555-5555"/><br/>	
+// 		Street address:<input ref="address" type="text" label="Street address" placeholder="123 Janky Dr"/><br/>	
+// 		Zipcode:<input ref="zip" type="text" label="Zipcode" placeholder="78704"/><br/>	
+
+// 		<button type='submit' value='Submit Button'>submit your listing </button>
+// </form>
+
+// submitListing: function(e) {
+// 	e.preventDefault();
+// 	var listingSubmit = new ListModel({
+// 		title: this.refs.title.getDOMNode().value,
+// 		description: this.refs.description.getDOMNode().value,
+// 		itemCondition: this.refs.condition.getDOMNode().value,
+// 		category: this.refs.category.getDOMNode().value,
+// 		userName: this.refs.user.getDOMNode().value,
+// 		userEmail: this.refs.email.getDOMNode().value,
+// 		userPhone: this.refs.phone.getDOMNode().value,
+// 		userAddress: this.refs.address.getDOMNode().value,
+// 		userZip: this.refs.zip.getDOMNode().value,
+
+// 	});
+
+// 	listingSubmit.save(null,{
+// 			success: function(ListModel) {
+// 				app.navigate('listSuccess', {trigger: true});
+// 			}
+// 		})
+// 	}
 
 },{"../models/listingModel":173,"react":160,"validator":161}],170:[function(require,module,exports){
 "use strict";
