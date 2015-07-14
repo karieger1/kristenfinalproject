@@ -2,19 +2,28 @@ var React = require('react');
 var validator = require('validator'); 
 var ListingModel = require("../models/listingModel");
 
-
+//Firebase shit: 
+   // var myDataRef = new Firebase('https://lo5f0fmo6nq.firebaseio-demo.com/');
+   //    $('#messageInput').keypress(function (e) {
+   //      if (e.keyCode == 13) {
+   //        var name = $('#nameInput').val();
+   //        var text = $('#messageInput').val();
+   //        myDataRef.set('User ' + Kristen + ' says ' + butts);
+   //        $('#messageInput').val('');
+   //      }
+   //    });
 module.exports = React.createClass({
 	
 	render: function () {
 		return (
 			<div className="listingform">
-				<h1> List your item! </h1>
+				<h1 id="listitem"><center> List your item! </center></h1>
 				
-					<form onSubmit={this.submitListing}>
-						<input ref='title' label='title' placeholder='Title your listing' /><br/>
-						<textarea ref='description' label="description">Describe your free thing!</textarea><br/>
-						<input ref='condition' label='itemCondition' placeholder="Working, not working?" /><br/>
-						<input ref='category' label='select' placeholder='Category' >
+					<form id="listform" onSubmit={this.submitListing}>
+						Listing title:<input ref='title' label='title' placeholder='Laser pistol' /><br/>
+						Describe your item:<textarea ref='description' label="description" placeholder="It shoots laser beams."></textarea><br/>
+						Item condition:<input ref='condition' label='itemCondition' placeholder="It works 80% of the time." /><br/>
+						Choose a category:<select ref='category'>
 						      <option value='select'>Please select</option>
 						      <option value='apparel'>Apparel/shoes</option>
 						      <option value='bicycles'>Bicycles</option>
@@ -27,12 +36,12 @@ module.exports = React.createClass({
 						      <option value='sports'>Sports stuff</option>
 						      <option value='toys'>Toys</option>
 						      <option value='whatever'>Whatever?</option>
-					    </input><br/>
-					    <input ref='user' label='username' placeholder='Choose a username' /><br/>
-					    <input ref="email" type="text" label="Email address" placeholder="dude@coolguy.com"/><br/>	
-						<input ref="phone" type="text" label="Phone" placeholder="512-555-5555"/><br/>	
-						<input ref="address" type="text" label="Street address" placeholder="123 Janky Dr"/><br/>	
-						<input ref="zip" type="text" label="Zipcode" placeholder="78704"/><br/>	
+					    </select><br/>
+					    Your name:<input ref='user' label='name' placeholder='Choose a username' /><br/>
+					    Email:<input ref="email" type="text" label="Email address" placeholder="dude@coolguy.com"/><br/>	
+						Phone:<input ref="phone" type="text" label="Phone" placeholder="512-555-5555"/><br/>	
+						Street address:<input ref="address" type="text" label="Street address" placeholder="123 Janky Dr"/><br/>	
+						Zipcode:<input ref="zip" type="text" label="Zipcode" placeholder="78704"/><br/>	
 
 						<button type='submit' value='Submit Button'>submit your listing </button>
 					</form>

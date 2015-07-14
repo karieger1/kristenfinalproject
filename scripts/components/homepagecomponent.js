@@ -5,8 +5,6 @@ module.exports = React.createClass ({
 		return (
 			<div className="mainheading" id="heading" styles="background:transparent !important">
 		    	
-			
-
 					<strong><center><h1 id="logo">Take My Things!</h1></center></strong>
 
 					<div className="container">
@@ -16,7 +14,6 @@ module.exports = React.createClass ({
 					  		</div>
 					  	</div>
 					</div>
-
 
 					  <center><p><a className="btn btn-primary btn-lg" id="button1" href="#listThings" role="button">Get rid of things</a></p></center>
 					  <center><p><a className="btn btn-primary btn-lg" id="button2" href="#findThingsMap" role="button">Find things</a></p></center>
