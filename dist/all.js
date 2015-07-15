@@ -33597,12 +33597,98 @@ var React = require('react');
 module.exports = React.createClass({
 	displayName: 'exports',
 
+	getInitialState: function getInitialState() {
+		return {
+			map: null
+		};
+	},
+	componentWillMount: function componentWillMount() {
+		google.maps.event.addDomListener(window, 'load', this.createMap);
+	},
 	render: function render() {
+		var style = {
+			width: '100%',
+			height: '15em'
+		};
 		return React.createElement(
 			'div',
-			null,
-			'This is a highly sophisticated map.'
+			{ className: 'googlemap' },
+			React.createElement(
+				'center',
+				null,
+				React.createElement(
+					'div',
+					{ ref: 'map', style: style },
+					'hello'
+				),
+				React.createElement(
+					'div',
+					{ ref: 'street', style: style },
+					'hello'
+				),
+				React.createElement(
+					'button',
+					{ type: 'button', onClick: this.recenterMap },
+					'Re-center map'
+				),
+				React.createElement(
+					'button',
+					{ type: 'button', onClick: this.addMarker },
+					'Add marker'
+				),
+				React.createElement(
+					'button',
+					{ type: 'button', onClick: this.streetView },
+					'Street view'
+				)
+			)
 		);
+	},
+	createMap: function createMap() {
+		var mapOptions = {
+			center: { lat: -34.397, lng: 150.644 },
+			zoom: 8
+		};
+		var map = new google.maps.Map(this.refs.map.getDOMNode(), mapOptions);
+
+		this.setState({ map: map });
+	},
+
+	recenterMap: function recenterMap() {
+		console.log('recenterMap');
+
+		var latLng = new google.maps.LatLng(-33.7969235, 150.9224326);
+
+		this.state.map.panTo(latLng);
+		// this.state.map.setZoom(17);
+	},
+
+	addMarker: function addMarker() {
+		var myLatlng = new google.maps.LatLng(-34.397, 150.644);
+		var marker = new google.maps.Marker({
+			position: myLatlng,
+			map: this.state.map,
+			title: 'Hello World!'
+		});
+		var contentString = '<h3>hello world!</h3>';
+		var infowindow = new google.maps.InfoWindow({
+			content: contentString
+		});
+		var self = this;
+		google.maps.event.addListener(marker, 'click', function () {
+			infowindow.open(self.state.map, marker);
+		});
+	},
+	streetView: function streetView() {
+		var panoramaOptions = {
+			position: new google.maps.LatLng(42.345573, -71.098326),
+			pov: {
+				heading: 34,
+				pitch: 10
+			}
+		};
+		var panorama = new google.maps.StreetViewPanorama(this.refs.street.getDOMNode(), panoramaOptions);
+		this.state.map.setStreetView(panorama);
 	}
 });
 
@@ -33833,6 +33919,11 @@ module.exports = React.createClass({
 					)
 				),
 				React.createElement(
+					'div',
+					{ className: 'alert alert-danger' },
+					this.state.errors.server
+				),
+				React.createElement(
 					'h3',
 					{ id: 'aboutyou' },
 					'About you:'
@@ -33842,33 +33933,34 @@ module.exports = React.createClass({
 					{ type: 'submit', ref: 'listing', onSubmit: this.listingsubmit },
 					React.createElement(
 						'div',
-						{ className: 'form-group', input: true, ref: 'name' },
+						{ className: 'form-group' },
 						'Your name:',
-						React.createElement('input', { type: 'text', className: 'form-control', id: 'name', placeholder: 'Bo Jangles' })
+						React.createElement('input', { type: 'text', ref: 'name', className: 'form-control', id: 'name', placeholder: 'Bo Jangles' })
 					),
 					React.createElement(
 						'div',
-						{ className: 'form-group', input: true, ref: 'email' },
+						{ className: 'form-group' },
 						'Email:',
-						React.createElement('input', { type: 'email', className: 'form-control', id: 'email', placeholder: 'bo@gmail.com' })
+						React.createElement('input', { type: 'email', ref: 'email', className: 'form-control', id: 'email', placeholder: 'bo@gmail.com' })
 					),
 					React.createElement(
 						'div',
-						{ className: 'form-group', input: true, ref: 'phone' },
+						{ className: 'form-group' },
 						'Phone number:',
-						React.createElement('input', { type: 'number', className: 'form-control', id: 'phone', placeholder: '512-555-5555' })
+						React.createElement('input', { type: 'tel', ref: 'phone', className: 'form-control', id: 'phone', placeholder: '512-555-5555' })
 					),
+					'//use boostrap helper classes for errors',
 					React.createElement(
 						'div',
-						{ className: 'form-group', input: true, ref: 'address' },
+						{ className: 'form-group' },
 						'Street address:',
-						React.createElement('input', { type: 'text', className: 'form-control', id: 'address', placeholder: '123 Dancing Dr' })
+						React.createElement('input', { type: 'text', ref: 'address', className: 'form-control', id: 'address', placeholder: '123 Dancing Dr' })
 					),
 					React.createElement(
 						'div',
-						{ className: 'form-group', input: true, ref: 'zip' },
+						{ className: 'form-group' },
 						'Zipcode:',
-						React.createElement('input', { type: 'number', className: 'form-control', id: 'zip', placeholder: '78704' })
+						React.createElement('input', { type: 'number', ref: 'zip', className: 'form-control', id: 'zip', placeholder: '78704' })
 					),
 					React.createElement(
 						'h3',
@@ -33877,29 +33969,29 @@ module.exports = React.createClass({
 					),
 					React.createElement(
 						'div',
-						{ className: 'form-group', input: true, ref: 'title' },
+						{ className: 'form-group' },
 						'Choose a title for your listing:',
-						React.createElement('input', { type: 'text', className: 'form-control', id: 'title', placeholder: 'Toaster oven' })
+						React.createElement('input', { type: 'text', ref: 'title', className: 'form-control', id: 'title', placeholder: 'Toaster oven' })
 					),
 					React.createElement(
 						'div',
-						{ className: 'form-group', input: true, ref: 'description' },
+						{ className: 'form-group' },
 						'Describe your item:',
-						React.createElement('input', { type: 'text', className: 'form-control', id: 'description', placeholder: 'Bought two years ago. Still works great!' })
+						React.createElement('input', { type: 'text', ref: 'description', className: 'form-control', id: 'description', placeholder: 'Bought two years ago. Still works great!' })
 					),
 					React.createElement(
 						'div',
-						{ className: 'form-group', input: true, ref: 'condition' },
+						{ className: 'form-group' },
 						'Item condition:',
-						React.createElement('input', { type: 'text', className: 'form-control', id: 'condition', placeholder: 'Works 80% of the time.' })
+						React.createElement('input', { type: 'text', ref: 'condition', className: 'form-control', id: 'condition', placeholder: 'Works 80% of the time.' })
 					),
 					React.createElement(
 						'div',
-						{ className: 'form-group', input: true, ref: 'category' },
+						{ className: 'form-group' },
 						'Choose a category:',
 						React.createElement(
 							'select',
-							{ ref: 'category', className: 'form-control', id: 'category' },
+							{ ref: 'category', ref: 'category', className: 'form-control', id: 'category' },
 							React.createElement(
 								'option',
 								{ value: 'select' },
@@ -33967,105 +34059,102 @@ module.exports = React.createClass({
 						null,
 						React.createElement(
 							'button',
-							{ type: 'button', id: 'submitlistingbutton', className: 'btn btn-primary' },
+							{ type: 'submit', id: 'submitlistingbutton', className: 'btn btn-primary' },
 							'Submit your listing'
 						)
 					)
 				)
 			)
 		);
+	},
+
+	listingsubmit: function listingsubmit(e) {
+		e.preventDefault();
+
+		var that = this;
+		var errors = {};
+
+		this.props.listing.set('userName', that.refs.name.getDOMNode().value);
+		this.props.listing.set('userEmail', that.refs.email.getDOMNode().value);
+		this.props.listing.set('userPhone', that.refs.phone.getDOMNode().value);
+		this.props.listing.set('userAddress', that.refs.address.getDOMNode().value);
+		this.props.listing.set('userZip', that.refs.zip.getDOMNode().value);
+		this.props.listing.set('title', that.refs.title.getDOMNode().value);
+		this.props.listing.set('description', that.refs.description.getDOMNode().value);
+		this.props.listing.set('itemCondition', that.refs.condition.getDOMNode().value);
+		this.props.listing.set('category', that.refs.category.getDOMNode().selected);
+
+		if (!this.props.listing.get('userName')) {
+			errors.name = 'please enter a first name at least, otherwise it\'s awkward';
+		}
+		if (!this.props.listing.get('userEmail')) {
+			errors.email = 'please enter an email address';
+		}
+		if (!this.props.listing.get('userPhone')) {
+			errors.phone = 'please enter a phone number';
+		}
+		if (!this.props.listing.get('userAddress')) {
+			errors.address = 'please enter your street address';
+		}
+		if (!this.props.listing.get('userZip')) {
+			errors.zip = 'please enter a valid zipcode';
+		}
+		if (!this.props.listing.get('title')) {
+			errors.address = 'please enter a title for your listing';
+		}
+		if (!this.props.listing.get('description')) {
+			errors.address = 'please enter a brief description for your listing';
+		}
+		if (!this.props.listing.get('itemCondition')) {
+			errors.address = 'please let us know the condition of your item';
+		}
+
+		console.log(errors);
+		if (_.isEmpty(errors)) {
+
+			this.props.listing.save(null, {
+				success: function success(listingModel) {
+					that.props.myApp.navigate('listSuccess', { trigger: true });
+				},
+				error: function error(listingModel, response) {
+					that.refs.serverError.getDOMNode().innerHTML = response.responseJSON.error;
+					console.log('listing was not registered', response.responseJSON);
+					that.setState({ errors: { server: response.responseJSON.error } });
+				}
+			});
+		} else {
+			that.setState({ errors: errors });
+		}
 	}
 
+	// submitlistingbutton.onClick {
+	// 	app.navigate('listSuccess', {trigger: true});
+
+	// }
+
+	// submitListing: function(e) {
+	// 	e.preventDefault();
+	// 	var listingSubmit = new ListModel({
+	// 		title: this.refs.title.getDOMNode().value,
+	// 		description: this.refs.description.getDOMNode().value,
+	// 		itemCondition: this.refs.condition.getDOMNode().value,
+	// 		category: this.refs.category.getDOMNode().value,
+	// 		listingName: this.refs.listing.getDOMNode().value,
+	// 		listingEmail: this.refs.email.getDOMNode().value,
+	// 		listingPhone: this.refs.phone.getDOMNode().value,
+	// 		listingAddress: this.refs.address.getDOMNode().value,
+	// 		listingZip: this.refs.zip.getDOMNode().value,
+
+	// 	});
+
+	// 	listingSubmit.save(null,{
+	// 			success: function(ListModel) {
+	// 				app.navigate('listSuccess', {trigger: true});
+	// 			}
+	// 		})
+	// 	}
+
 });
-// listingsubmit: function(e) {
-// 	e.preventDefault();
-
-// 	var that = this;
-// 	var errors = {};
-
-// 		this.props.listing.set("userName", that.refs.name.getDOMNode().value);
-// 		this.props.listing.set("userEmail", that.refs.email.getDOMNode().value);
-// 		this.props.listing.set("userPhone", that.refs.phone.getDOMNode().value);
-// 		this.props.listing.set("userAddress", that.refs.address.getDOMNode().value);
-// 		this.props.listing.set("userZip", that.refs.zip.getDOMNode().value);
-// 		this.props.listing.set("title", that.refs.title.getDOMNode().value);
-// 		this.props.listing.set("description", that.refs.description.getDOMNode().value);
-// 		this.props.listing.set("itemCondition", that.refs.condition.getDOMNode().value);
-// 		this.props.listing.set("category", that.refs.category.getDOMNode().selected);
-
-// 	if (!this.props.listing.get('userName')) {
-// 		errors.name = "please enter a first name at least, otherwise it's awkward";
-// 	}
-// 	if (!this.props.listing.get('userEmail')) {
-// 		errors.email = 'please enter an email address';
-// 	}
-// 	if (!this.props.listing.get('userPhone')) {
-// 		errors.phone = 'please enter a phone number';
-// 	}
-// 	if (!this.props.listing.get('userAddress')) {
-// 		errors.address = 'please enter your street address';
-// 	}
-// 	if (!this.props.listing.get('userZip'))  {
-// 		errors.zip = 'please enter a valid zipcode';
-// 	}
-// 	if (!this.props.listing.get('title')) {
-// 		errors.address = 'please enter a title for your listing';
-// 	}
-// 	if (!this.props.listing.get('description')) {
-// 		errors.address = 'please enter a brief description for your listing';
-// 	}
-// 	if (!this.props.listing.get('itemCondition')) {
-// 		errors.address = 'please let us know the condition of your item';
-// 	}
-
-// 	console.log(errors);
-// 	if(_.isEmpty(errors)) {
-
-// 		this.props.listing.save(
-// 			null,
-// 			{
-// 		    success: function(listingModel) {
-// 		    	that.props.myApp.navigate('listSuccess', {trigger: true});
-
-// 		    },
-// 		    error: function(listingModel, response) {
-// 		    	that.refs.serverError.getDOMNode().innerHTML = response.responseJSON.error;
-// 		        console.log('listing was not registered', response.responseJSON);
-// 		    }
-// 		});
-// 	}
-
-// 	else {
-// 		that.setState({errors: errors});
-// 	}
-// }
-
-// submitlistingbutton.onClick {
-// 	app.navigate('listSuccess', {trigger: true});
-
-// }
-
-// submitListing: function(e) {
-// 	e.preventDefault();
-// 	var listingSubmit = new ListModel({
-// 		title: this.refs.title.getDOMNode().value,
-// 		description: this.refs.description.getDOMNode().value,
-// 		itemCondition: this.refs.condition.getDOMNode().value,
-// 		category: this.refs.category.getDOMNode().value,
-// 		listingName: this.refs.listing.getDOMNode().value,
-// 		listingEmail: this.refs.email.getDOMNode().value,
-// 		listingPhone: this.refs.phone.getDOMNode().value,
-// 		listingAddress: this.refs.address.getDOMNode().value,
-// 		listingZip: this.refs.zip.getDOMNode().value,
-
-// 	});
-
-// 	listingSubmit.save(null,{
-// 			success: function(ListModel) {
-// 				app.navigate('listSuccess', {trigger: true});
-// 			}
-// 		})
-// 	}
 
 },{"../../node_modules/underscore/underscore-min.js":161,"../models/listingModel":174,"react":160,"validator":162}],171:[function(require,module,exports){
 "use strict";
@@ -34163,8 +34252,6 @@ var React = require("react");
 var Backbone = require("backbone");
 Backbone.$ = require("jquery");
 
-//var listing = new ListingModel();
-
 var containerEl = document.getElementById("container");
 
 var GiverDetail = require("./components/giverdetailcomponent");
@@ -34176,10 +34263,13 @@ var FindThingsMap = require("./components/findThingsMapComponent");
 var AboutUs = require("./components/aboutUsComponent");
 var NavBar = require("./components/navComponent");
 var HomePage = require("./components/homepagecomponent");
+//var MapComponent = require("./components/map.js");
 
 var ListingCollection = require("./collections/listingCollection");
 
 var ListingModel = require("./models/listingModel");
+
+var listing = new ListingModel();
 
 React.render(React.createElement(NavBar, { myApp: myApp }), document.getElementById("navbar"));
 
@@ -34203,7 +34293,10 @@ var App = Backbone.Router.extend({
 		React.render(React.createElement(HomePage, null), containerEl);
 	},
 	findThingsMap: function findThingsMap() {
-		React.render(React.createElement(FindThingsMap, null), containerEl);
+		console.log("map of things?");
+		React.render(React.createElement(FindThingsMap, null),
+		//document.getElementById("map-canvas")
+		containerEl);
 	},
 	findThingsList: function findThingsList() {
 		React.render(React.createElement(FindThingsList, null), containerEl);
@@ -34216,7 +34309,7 @@ var App = Backbone.Router.extend({
 	},
 	listThings: function listThings() {
 		console.log("list things");
-		React.render(React.createElement(ListThings, null), containerEl);
+		React.render(React.createElement(ListThings, { listing: listing }), containerEl);
 	},
 	listSuccess: function listSuccess() {
 		React.render(React.createElement(ListSuccess, null), containerEl);
@@ -34235,8 +34328,8 @@ Backbone.history.start();
 'use strict';
 
 var Backbone = require('backparse')({
-				appId: 'yJiZubO8JLzfUFse2nvE3MBFaO6o9IJSSzXSiOdi',
-				apiKey: 'udxVtPHhV1pnBxfBHgkNEpMwv7OMTyLcM28KPLOC',
+				appId: 'mymJM88ioRzDIumuLBWpUsXokyFpuAtVJCYATCJH',
+				apiKey: 'MFzztwSFpRYXJMyvfPfnJ7N9cOFozKK2opJNGlOA',
 				apiVersion: 1
 });
 

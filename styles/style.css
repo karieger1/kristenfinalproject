@@ -257,3 +257,10 @@ h3 {
         height: 400px;
         background-color: #CCC;
       }
+
+.googlemap {
+	padding-top: 100px;
+	width:80%;
+	height:400px;
+	margin: 0 auto;
+}
