@@ -19,7 +19,7 @@ module.exports = React.createClass({
 				<div className="container">
 					<center><h2 id="listyouritem">List your item!</h2></center>
 					
-					<div className="alert alert-danger">{this.state.errors.server}</div>
+					
 					
 					<h3 id="aboutyou">About you:</h3>
 					  <form type="submit" ref="listing" onSubmit={this.listingsubmit}>
@@ -27,26 +27,31 @@ module.exports = React.createClass({
 					    <div className="form-group" >
 					      Your name:
 					      <input type="text" ref="name" className="form-control" id="name" placeholder="Bo Jangles" />
+					    	<p className="text-danger">{this.state.errors.name}</p>
 					    </div>
 
 					    <div className="form-group">
 					     Email:
 					      <input type="email" ref="email" className="form-control" id="email" placeholder="bo@gmail.com" />
+							<p className="text-danger">{this.state.errors.email}</p>
 						</div>
 
 						<div className="form-group">
 					     Phone number:
 					      <input type="tel" ref="phone" className="form-control" id="phone" placeholder="512-555-5555" />
+							<p className="text-danger">{this.state.errors.phone}</p>
 						</div>
-//use boostrap helper classes for errors
+
 						<div className="form-group" >
 					     Street address:
 					      <input type="text" ref="address" className="form-control" id="address" placeholder="123 Dancing Dr" />
+							<p className="text-danger">{this.state.errors.address}</p>
 						</div> 
 
 						<div className="form-group">
 					     Zipcode:
 					      <input type="number" ref="zip" className="form-control" id="zip" placeholder="78704" />
+							<p className="text-danger">{this.state.errors.zip}</p>
 						</div> 
 
 
@@ -55,16 +60,19 @@ module.exports = React.createClass({
     				  	<div className="form-group">
 					     Choose a title for your listing:
 					      <input type="text" ref="title" className="form-control" id="title" placeholder="Toaster oven" />
+							<p className="text-danger">{this.state.errors.title}</p>
 						</div> 
 
 						<div className="form-group">
 					     Describe your item:
 					      <input type="text" ref='description' className="form-control" id="description" placeholder="Bought two years ago. Still works great!" />
+							<p className="text-danger">{this.state.errors.description}</p>
 						</div> 
 
 						<div className="form-group">
 					     Item condition:
 					      <input type="text" ref='condition' className="form-control" id="condition" placeholder="Works 80% of the time." />
+							<p className="text-danger">{this.state.errors.condition}</p>
 						</div> 
 
 						<div className="form-group">
@@ -85,9 +93,16 @@ module.exports = React.createClass({
 					    </select>
 					    </div>
 
+					    <button type="button" className="btn btn-default" onClick={this.uploadImage} >Upload image</button>
+					    	{ /* this.state.imageUrl */ }
+					    	{this.state.imageUrl ? "Image successfully uploaded!": "" }
+					    	{ /* if this is truthy, image uploaded */ }
+
 					    <center><button type="submit" id="submitlistingbutton" className="btn btn-primary" >
   							Submit your listing
 						</button></center>
+
+						
 
     				  </form>	
 
@@ -111,7 +126,7 @@ module.exports = React.createClass({
 			this.props.listing.set("description", that.refs.description.getDOMNode().value);
 			this.props.listing.set("itemCondition", that.refs.condition.getDOMNode().value);
 			this.props.listing.set("category", that.refs.category.getDOMNode().selected);
-
+			this.props.listing.set("itemImage", this.state.imageUrl);
 
 
 		if (!this.props.listing.get('userName')) {
@@ -130,13 +145,13 @@ module.exports = React.createClass({
 			errors.zip = 'please enter a valid zipcode';
 		}
 		if (!this.props.listing.get('title')) {
-			errors.address = 'please enter a title for your listing';
+			errors.title = 'please enter a title for your listing';
 		}
 		if (!this.props.listing.get('description')) {
-			errors.address = 'please enter a brief description for your listing';
+			errors.description = 'please enter a brief description for your listing';
 		}
 		if (!this.props.listing.get('itemCondition')) {
-			errors.address = 'please let us know the condition of your item';
+			errors.itemCondition = 'please let us know the condition of your item';
 		}
 
 
@@ -154,6 +169,7 @@ module.exports = React.createClass({
 			    	that.refs.serverError.getDOMNode().innerHTML = response.responseJSON.error;
 			        console.log('listing was not registered', response.responseJSON);
 			    	that.setState({errors: {server: response.responseJSON.error}});
+			    	
 			    }
 			});
 		}
@@ -161,6 +177,26 @@ module.exports = React.createClass({
 		else {
 			that.setState({errors: errors});
 		}
+	},
+
+
+
+	uploadImage: function() {
+		var self=this;
+		console.log ("image submit")
+		filepicker.pickAndStore(
+			{
+			mimetype: "image/*"
+			},
+			{},
+			function(response){
+				// console.log(response);
+				// var imageUrl = response[0];
+				// 	response[0].url
+				
+				self.setState({imageUrl: response[0].url})
+			}
+		);
 	}
 					
 	// submitlistingbutton.onClick {

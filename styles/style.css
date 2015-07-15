@@ -36,7 +36,7 @@
 	letter-spacing: -1px;
 	margin-bottom: 2em;
 	color:white;
-	font-size: 20px;	
+	font-size: 22px;	
 	text-shadow:
 	    3px 3px 0 #000,
 	   -1px -1px 0 #000,  
@@ -128,21 +128,84 @@
 
 }
 
-#goals {
-	margin-top: 100px;
-	font-size:16px;
+#goalsHeading {
+	color:white;
+	font-size:22px;
+	text-shadow:
+	    3px 3px 0 #000,
+	   -1px -1px 0 #000,  
+	    1px -1px 0 #000,
+	   -1px  1px 0 #000,
+	    1px  1px 0 #000;
+	clear: both;
+	margin-top: 120px;
+
+}
+
+/*.goals {
+	margin-top: 70px;
+	font-size:14px;
 	border: solid white 2px;
 	border-radius: 50%;
-	width: 300px;
-	height: 200px;
-	text-align: center;
+	width: 150px;
+	height: 150px;
+	
 	padding-top: 60px;
 	clear: both;
 	color: white;
 
+}*/
+
+#goal1 {
+	display: inline-block;
+	margin-top: 32px;
+	font-size:18px;
+	border: solid white 2px;
+	border-radius: 50%;
+	width: 120px;
+	height: 120px;
+	padding-top: 36px;
+	clear: both;
+	color: white;
+	margin-left: 80px;
+	padding-left: 30px;
+	background-color: green;
+	opacity: 0.5;
 }
-ul {
-	list-style: none;
+
+#goal2 {
+	display: inline-block;
+	margin-top: 32px;
+	font-size:18px;
+	border: solid white 2px;
+	border-radius: 50%;
+	width: 120px;
+	height: 120px;
+	padding-top: 36px;
+	clear: both;
+	color: white;
+	margin-left: 57px;
+	padding-left: 30px;
+}
+
+#goal3 {
+	display: inline-block;
+	margin-top: 32px;
+	font-size:18px;
+	border: solid white 2px;
+	border-radius: 50%;
+	width: 120px;
+	height: 120px;
+	padding-top: 36px;
+	clear: both;
+	color: white;
+	margin-right: 80px;
+	padding-left: 30px;
+	float:right;
+}
+
+.goalscircle {
+	padding-bottom: 50px;
 }
 
 .aboutUsSection {
@@ -252,7 +315,9 @@ h3 {
 	line-height: 30px;
 }
 
- #map-canvas {
+
+
+#map-canvas {
         width: 500px;
         height: 400px;
         background-color: #CCC;
@@ -261,6 +326,6 @@ h3 {
 .googlemap {
 	padding-top: 100px;
 	width:80%;
-	height:400px;
+	height: 400px;
 	margin: 0 auto;
 }

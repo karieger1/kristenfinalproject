@@ -2,10 +2,6 @@ var React = require('react');
 var Backbone = require("backbone");
 Backbone.$ = require("jquery");
 
-
-
-
-
 var containerEl = document.getElementById("container");
 
 
@@ -18,13 +14,15 @@ var FindThingsMap = require("./components/findThingsMapComponent");
 var AboutUs = require('./components/aboutUsComponent');
 var NavBar = require('./components/navComponent');
 var HomePage = require("./components/homepagecomponent");
-//var MapComponent = require("./components/map.js");
+var MapComponent = require("./components/map.js");
 
 var ListingCollection = require('./collections/listingCollection');
 
 var ListingModel = require("./models/listingModel");
 
 var listing = new ListingModel();
+
+filepicker.setKey("ANzsBUFgaT0q8UhqRkYmyz");
 
 React.render(<NavBar myApp={myApp} />, 
 	document.getElementById("navbar"));
@@ -83,7 +81,8 @@ var App = Backbone.Router.extend({
 	listThings: function() {
 		console.log('list things')
 		React.render(
-			<ListThings listing ={listing} />,
+			<ListThings listing ={listing}
+			myApp={myApp} />,
 			containerEl
 		);
 	},

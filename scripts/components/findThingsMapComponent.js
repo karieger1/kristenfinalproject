@@ -19,7 +19,7 @@ module.exports = React.createClass({
 			<div className="googlemap">
 				<center>
 				<div ref="map" style={style}>hello</div>
-				<div ref="street" style={style}>hello</div>
+				/*<div ref="street" style={style}>hello</div>
 				<button type="button" onClick={this.recenterMap}>
 					Re-center map
 				</button>
@@ -29,13 +29,13 @@ module.exports = React.createClass({
 				<button type="button" onClick={this.streetView}>
 					Street view
 				</button>
-				</center>
+				</center>*/
 			</div>
 		);
 	},
 	createMap: function() {
 		var mapOptions = {
-			center: { lat: -34.397, lng: 150.644},
+			center: { lat: 30.3077609, lng: -97.7534014},
 			zoom: 8
 		};
 		var map = new google.maps.Map(
@@ -45,14 +45,14 @@ module.exports = React.createClass({
 
 		this.setState({map: map});
 
-	},
+	}
 
-	recenterMap: function() {
+	/*recenterMap: function() {
 		console.log('recenterMap');
 
 		var latLng = new google.maps.LatLng(
-			-33.7969235,
-			150.9224326
+			30.3077609,
+			-97.7534014
 		);
 
 		this.state.map.panTo(latLng);
@@ -77,7 +77,7 @@ module.exports = React.createClass({
 	},
 	streetView: function() {
 		var panoramaOptions = {
-			position: new google.maps.LatLng(42.345573, -71.098326),
+			position: new google.maps.LatLng(30.2268055, -97.7585088),
 			pov: {
 				heading: 34,
 				pitch: 10
@@ -88,5 +88,5 @@ module.exports = React.createClass({
 			panoramaOptions
 		);
   		this.state.map.setStreetView(panorama);
-	}
+	}*/
 });

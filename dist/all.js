@@ -33506,12 +33506,12 @@ var Backbone = require("backbone");
 Backbone.$ = require("jquery");
 var ListingModel = require("../models/listingModel");
 
-var listingCollection = Backbone.Collection.extend({
+module.exports = Backbone.Collection.extend({
     model: ListingModel,
     parseClassName: "listing"
 });
 
-},{"../models/listingModel":174,"backbone":1,"jquery":5}],164:[function(require,module,exports){
+},{"../models/listingModel":175,"backbone":1,"jquery":5}],164:[function(require,module,exports){
 "use strict";
 
 var React = require("react");
@@ -33621,6 +33621,7 @@ module.exports = React.createClass({
 					{ ref: 'map', style: style },
 					'hello'
 				),
+				'/*',
 				React.createElement(
 					'div',
 					{ ref: 'street', style: style },
@@ -33641,65 +33642,75 @@ module.exports = React.createClass({
 					{ type: 'button', onClick: this.streetView },
 					'Street view'
 				)
-			)
+			),
+			'*/'
 		);
 	},
 	createMap: function createMap() {
 		var mapOptions = {
-			center: { lat: -34.397, lng: 150.644 },
+			center: { lat: 30.3077609, lng: -97.7534014 },
 			zoom: 8
 		};
 		var map = new google.maps.Map(this.refs.map.getDOMNode(), mapOptions);
 
 		this.setState({ map: map });
-	},
-
-	recenterMap: function recenterMap() {
-		console.log('recenterMap');
-
-		var latLng = new google.maps.LatLng(-33.7969235, 150.9224326);
-
-		this.state.map.panTo(latLng);
-		// this.state.map.setZoom(17);
-	},
-
-	addMarker: function addMarker() {
-		var myLatlng = new google.maps.LatLng(-34.397, 150.644);
-		var marker = new google.maps.Marker({
-			position: myLatlng,
-			map: this.state.map,
-			title: 'Hello World!'
-		});
-		var contentString = '<h3>hello world!</h3>';
-		var infowindow = new google.maps.InfoWindow({
-			content: contentString
-		});
-		var self = this;
-		google.maps.event.addListener(marker, 'click', function () {
-			infowindow.open(self.state.map, marker);
-		});
-	},
-	streetView: function streetView() {
-		var panoramaOptions = {
-			position: new google.maps.LatLng(42.345573, -71.098326),
-			pov: {
-				heading: 34,
-				pitch: 10
-			}
-		};
-		var panorama = new google.maps.StreetViewPanorama(this.refs.street.getDOMNode(), panoramaOptions);
-		this.state.map.setStreetView(panorama);
 	}
+
+	/*recenterMap: function() {
+ 	console.log('recenterMap');
+ 		var latLng = new google.maps.LatLng(
+ 		30.3077609,
+ 		-97.7534014
+ 	);
+ 		this.state.map.panTo(latLng);
+ 	// this.state.map.setZoom(17);
+ },
+ 	addMarker: function() {
+ 	var myLatlng = new google.maps.LatLng(-34.397, 150.644);
+ 	var marker = new google.maps.Marker({
+ 		position: myLatlng,
+ 		map: this.state.map,
+ 		title: 'Hello World!'
+ 	});
+ 	var contentString = '<h3>hello world!</h3>';
+ 	var infowindow = new google.maps.InfoWindow({
+ 		content: contentString
+ 	});
+ 	var self = this;
+ 	google.maps.event.addListener(marker, 'click', function() {
+ 		infowindow.open(self.state.map, marker);
+ 	});
+ },
+ streetView: function() {
+ 	var panoramaOptions = {
+ 		position: new google.maps.LatLng(30.2268055, -97.7585088),
+ 		pov: {
+ 			heading: 34,
+ 			pitch: 10
+ 		}
+ 	};
+ 	var panorama = new google.maps.StreetViewPanorama(
+ 		this.refs.street.getDOMNode(),
+ 		panoramaOptions
+ 	);
+  		this.state.map.setStreetView(panorama);
+ }*/
 });
 
 },{"react":160}],166:[function(require,module,exports){
 "use strict";
 
 var React = require("react");
+var listingCollection = require("../collections/listingCollection");
 
 module.exports = React.createClass({
 	displayName: "exports",
 
+	componentWillMount: function componentWillMount() {
+		var listings = new listingCollection();
+		listings.fetch;
+	},
+	//call .map -- takes list of models and converts to react/html
 	render: function render() {
 		return React.createElement(
 			"div",
@@ -33726,7 +33737,7 @@ module.exports = React.createClass({
 	}
 });
 
-},{"react":160}],167:[function(require,module,exports){
+},{"../collections/listingCollection":163,"react":160}],167:[function(require,module,exports){
 "use strict";
 
 var React = require("react");
@@ -33822,28 +33833,34 @@ module.exports = React.createClass({
 					"center",
 					null,
 					React.createElement(
-						"section",
-						{ id: "goals" },
-						"Our goals are threefold:",
-						React.createElement(
-							"ul",
-							{ className: "tmtgoals" },
-							React.createElement(
-								"li",
-								null,
-								"1. Reduce waste"
-							),
-							React.createElement(
-								"li",
-								null,
-								"2. Help others"
-							),
-							React.createElement(
-								"li",
-								null,
-								"3. Have fun!"
-							)
-						)
+						"div",
+						{ id: "goalsHeading" },
+						"TMT's goals are threefold:"
+					)
+				),
+				React.createElement(
+					"div",
+					{ className: "goals" },
+					React.createElement(
+						"div",
+						{ id: "goal1" },
+						"Reduce",
+						React.createElement("br", null),
+						" waste"
+					),
+					React.createElement(
+						"div",
+						{ id: "goal2" },
+						"Help ",
+						React.createElement("br", null),
+						" others"
+					),
+					React.createElement(
+						"div",
+						{ id: "goal3" },
+						" Have ",
+						React.createElement("br", null),
+						" fun"
 					)
 				)
 			)
@@ -33919,11 +33936,6 @@ module.exports = React.createClass({
 					)
 				),
 				React.createElement(
-					'div',
-					{ className: 'alert alert-danger' },
-					this.state.errors.server
-				),
-				React.createElement(
 					'h3',
 					{ id: 'aboutyou' },
 					'About you:'
@@ -33935,32 +33947,56 @@ module.exports = React.createClass({
 						'div',
 						{ className: 'form-group' },
 						'Your name:',
-						React.createElement('input', { type: 'text', ref: 'name', className: 'form-control', id: 'name', placeholder: 'Bo Jangles' })
+						React.createElement('input', { type: 'text', ref: 'name', className: 'form-control', id: 'name', placeholder: 'Bo Jangles' }),
+						React.createElement(
+							'p',
+							{ className: 'text-danger' },
+							this.state.errors.name
+						)
 					),
 					React.createElement(
 						'div',
 						{ className: 'form-group' },
 						'Email:',
-						React.createElement('input', { type: 'email', ref: 'email', className: 'form-control', id: 'email', placeholder: 'bo@gmail.com' })
+						React.createElement('input', { type: 'email', ref: 'email', className: 'form-control', id: 'email', placeholder: 'bo@gmail.com' }),
+						React.createElement(
+							'p',
+							{ className: 'text-danger' },
+							this.state.errors.email
+						)
 					),
 					React.createElement(
 						'div',
 						{ className: 'form-group' },
 						'Phone number:',
-						React.createElement('input', { type: 'tel', ref: 'phone', className: 'form-control', id: 'phone', placeholder: '512-555-5555' })
+						React.createElement('input', { type: 'tel', ref: 'phone', className: 'form-control', id: 'phone', placeholder: '512-555-5555' }),
+						React.createElement(
+							'p',
+							{ className: 'text-danger' },
+							this.state.errors.phone
+						)
 					),
-					'//use boostrap helper classes for errors',
 					React.createElement(
 						'div',
 						{ className: 'form-group' },
 						'Street address:',
-						React.createElement('input', { type: 'text', ref: 'address', className: 'form-control', id: 'address', placeholder: '123 Dancing Dr' })
+						React.createElement('input', { type: 'text', ref: 'address', className: 'form-control', id: 'address', placeholder: '123 Dancing Dr' }),
+						React.createElement(
+							'p',
+							{ className: 'text-danger' },
+							this.state.errors.address
+						)
 					),
 					React.createElement(
 						'div',
 						{ className: 'form-group' },
 						'Zipcode:',
-						React.createElement('input', { type: 'number', ref: 'zip', className: 'form-control', id: 'zip', placeholder: '78704' })
+						React.createElement('input', { type: 'number', ref: 'zip', className: 'form-control', id: 'zip', placeholder: '78704' }),
+						React.createElement(
+							'p',
+							{ className: 'text-danger' },
+							this.state.errors.zip
+						)
 					),
 					React.createElement(
 						'h3',
@@ -33971,19 +34007,34 @@ module.exports = React.createClass({
 						'div',
 						{ className: 'form-group' },
 						'Choose a title for your listing:',
-						React.createElement('input', { type: 'text', ref: 'title', className: 'form-control', id: 'title', placeholder: 'Toaster oven' })
+						React.createElement('input', { type: 'text', ref: 'title', className: 'form-control', id: 'title', placeholder: 'Toaster oven' }),
+						React.createElement(
+							'p',
+							{ className: 'text-danger' },
+							this.state.errors.title
+						)
 					),
 					React.createElement(
 						'div',
 						{ className: 'form-group' },
 						'Describe your item:',
-						React.createElement('input', { type: 'text', ref: 'description', className: 'form-control', id: 'description', placeholder: 'Bought two years ago. Still works great!' })
+						React.createElement('input', { type: 'text', ref: 'description', className: 'form-control', id: 'description', placeholder: 'Bought two years ago. Still works great!' }),
+						React.createElement(
+							'p',
+							{ className: 'text-danger' },
+							this.state.errors.description
+						)
 					),
 					React.createElement(
 						'div',
 						{ className: 'form-group' },
 						'Item condition:',
-						React.createElement('input', { type: 'text', ref: 'condition', className: 'form-control', id: 'condition', placeholder: 'Works 80% of the time.' })
+						React.createElement('input', { type: 'text', ref: 'condition', className: 'form-control', id: 'condition', placeholder: 'Works 80% of the time.' }),
+						React.createElement(
+							'p',
+							{ className: 'text-danger' },
+							this.state.errors.condition
+						)
 					),
 					React.createElement(
 						'div',
@@ -34055,6 +34106,12 @@ module.exports = React.createClass({
 						)
 					),
 					React.createElement(
+						'button',
+						{ type: 'button', className: 'btn btn-default', onClick: this.uploadImage },
+						'Upload image'
+					),
+					this.state.imageUrl ? 'Image successfully uploaded!' : '',
+					React.createElement(
 						'center',
 						null,
 						React.createElement(
@@ -34083,6 +34140,7 @@ module.exports = React.createClass({
 		this.props.listing.set('description', that.refs.description.getDOMNode().value);
 		this.props.listing.set('itemCondition', that.refs.condition.getDOMNode().value);
 		this.props.listing.set('category', that.refs.category.getDOMNode().selected);
+		this.props.listing.set('itemImage', this.state.imageUrl);
 
 		if (!this.props.listing.get('userName')) {
 			errors.name = 'please enter a first name at least, otherwise it\'s awkward';
@@ -34100,13 +34158,13 @@ module.exports = React.createClass({
 			errors.zip = 'please enter a valid zipcode';
 		}
 		if (!this.props.listing.get('title')) {
-			errors.address = 'please enter a title for your listing';
+			errors.title = 'please enter a title for your listing';
 		}
 		if (!this.props.listing.get('description')) {
-			errors.address = 'please enter a brief description for your listing';
+			errors.description = 'please enter a brief description for your listing';
 		}
 		if (!this.props.listing.get('itemCondition')) {
-			errors.address = 'please let us know the condition of your item';
+			errors.itemCondition = 'please let us know the condition of your item';
 		}
 
 		console.log(errors);
@@ -34125,6 +34183,20 @@ module.exports = React.createClass({
 		} else {
 			that.setState({ errors: errors });
 		}
+	},
+
+	uploadImage: function uploadImage() {
+		var self = this;
+		console.log('image submit');
+		filepicker.pickAndStore({
+			mimetype: 'image/*'
+		}, {}, function (response) {
+			// console.log(response);
+			// var imageUrl = response[0];
+			// 	response[0].url
+
+			self.setState({ imageUrl: response[0].url });
+		});
 	}
 
 	// submitlistingbutton.onClick {
@@ -34155,8 +34227,9 @@ module.exports = React.createClass({
 	// 	}
 
 });
+/* this.state.imageUrl */ /* if this is truthy, image uploaded */
 
-},{"../../node_modules/underscore/underscore-min.js":161,"../models/listingModel":174,"react":160,"validator":162}],171:[function(require,module,exports){
+},{"../../node_modules/underscore/underscore-min.js":161,"../models/listingModel":175,"react":160,"validator":162}],171:[function(require,module,exports){
 "use strict";
 
 var React = require("react");
@@ -34187,6 +34260,99 @@ module.exports = React.createClass({
 });
 
 },{"react":160}],172:[function(require,module,exports){
+"use strict";
+
+// var React = require('react');
+
+// module.exports = React.createClass({
+// 	getInitialState: function() {
+// 		return {
+// 			map: null
+// 		}
+// 	},
+// 	componentWillMount: function() {
+// 		google.maps.event.addDomListener(window, 'load', this.createMap);
+// 	},
+// 	render: function() {
+// 		var style = {
+// 			width: '100%',
+// 			height: '15em'
+// 		};
+// 		return (
+// 			<div>
+// 				<div ref="map" style={style}>hello</div>
+// 				<div ref="street" style={style}>hello</div>
+// 				<button type="button" onClick={this.recenterMap}>
+// 					Re-center map
+// 				</button>
+// 				<button type="button" onClick={this.addMarker}>
+// 					Add marker
+// 				</button>
+// 				<button type="button" onClick={this.streetView}>
+// 					Street view
+// 				</button>
+// 			</div>
+// 		);
+// 	},
+// 	createMap: function() {
+// 		var mapOptions = {
+// 			center: { lat: -34.397, lng: 150.644},
+// 			zoom: 8
+// 		};
+// 		var map = new google.maps.Map(
+// 			this.refs.map.getDOMNode(),
+// 			mapOptions
+// 		);
+
+// 		this.setState({map: map});
+
+// 	},
+
+// 	recenterMap: function() {
+// 		console.log('recenterMap');
+
+// 		var latLng = new google.maps.LatLng(
+// 			-33.7969235,
+// 			150.9224326
+// 		);
+
+// 		this.state.map.panTo(latLng);
+// 		// this.state.map.setZoom(17);
+// 	},
+
+// 	addMarker: function() {
+// 		var myLatlng = new google.maps.LatLng(-34.397, 150.644);
+// 		var marker = new google.maps.Marker({
+// 			position: myLatlng,
+// 			map: this.state.map,
+// 			title: 'Hello World!'
+// 		});
+// 		var contentString = '<h3>hello world!</h3>';
+// 		var infowindow = new google.maps.InfoWindow({
+// 			content: contentString
+// 		});
+// 		var self = this;
+// 		google.maps.event.addListener(marker, 'click', function() {
+// 			infowindow.open(self.state.map, marker);
+// 		});
+// 	},
+// 	streetView: function() {
+// 		var panoramaOptions = {
+// 			position: new google.maps.LatLng(42.345573, -71.098326),
+// 			pov: {
+// 				heading: 34,
+// 				pitch: 10
+// 			}
+// 		};
+// 		var panorama = new google.maps.StreetViewPanorama(
+// 			this.refs.street.getDOMNode(),
+// 			panoramaOptions
+// 		);
+//   		this.state.map.setStreetView(panorama);
+// 	}
+// });
+
+},{}],173:[function(require,module,exports){
 "use strict";
 
 var React = require("react");
@@ -34245,7 +34411,7 @@ module.exports = React.createClass({
     }
 });
 
-},{"react":160}],173:[function(require,module,exports){
+},{"react":160}],174:[function(require,module,exports){
 "use strict";
 
 var React = require("react");
@@ -34263,13 +34429,15 @@ var FindThingsMap = require("./components/findThingsMapComponent");
 var AboutUs = require("./components/aboutUsComponent");
 var NavBar = require("./components/navComponent");
 var HomePage = require("./components/homepagecomponent");
-//var MapComponent = require("./components/map.js");
+var MapComponent = require("./components/map.js");
 
 var ListingCollection = require("./collections/listingCollection");
 
 var ListingModel = require("./models/listingModel");
 
 var listing = new ListingModel();
+
+filepicker.setKey("ANzsBUFgaT0q8UhqRkYmyz");
 
 React.render(React.createElement(NavBar, { myApp: myApp }), document.getElementById("navbar"));
 
@@ -34309,7 +34477,8 @@ var App = Backbone.Router.extend({
 	},
 	listThings: function listThings() {
 		console.log("list things");
-		React.render(React.createElement(ListThings, { listing: listing }), containerEl);
+		React.render(React.createElement(ListThings, { listing: listing,
+			myApp: myApp }), containerEl);
 	},
 	listSuccess: function listSuccess() {
 		React.render(React.createElement(ListSuccess, null), containerEl);
@@ -34324,7 +34493,7 @@ var myApp = new App();
 
 Backbone.history.start();
 
-},{"./collections/listingCollection":163,"./components/aboutUsComponent":164,"./components/findThingsMapComponent":165,"./components/findthingslistcomponent":166,"./components/giverdetailcomponent":167,"./components/homepagecomponent":168,"./components/itemdetailcomponent":169,"./components/listThingsComponent":170,"./components/listsuccesscomponent":171,"./components/navComponent":172,"./models/listingModel":174,"backbone":1,"jquery":5,"react":160}],174:[function(require,module,exports){
+},{"./collections/listingCollection":163,"./components/aboutUsComponent":164,"./components/findThingsMapComponent":165,"./components/findthingslistcomponent":166,"./components/giverdetailcomponent":167,"./components/homepagecomponent":168,"./components/itemdetailcomponent":169,"./components/listThingsComponent":170,"./components/listsuccesscomponent":171,"./components/map.js":172,"./components/navComponent":173,"./models/listingModel":175,"backbone":1,"jquery":5,"react":160}],175:[function(require,module,exports){
 'use strict';
 
 var Backbone = require('backparse')({
@@ -34360,7 +34529,7 @@ module.exports = Backbone.Model.extend({
 				idAttribute: 'objectId'
 });
 
-},{"backparse":3,"jquery":5}]},{},[173])
+},{"backparse":3,"jquery":5}]},{},[174])
 
 
 //# sourceMappingURL=all.js.map
