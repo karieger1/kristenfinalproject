@@ -1,6 +1,9 @@
-var myDataRef = new Firebase("https://radiant-fire-677.firebaseio.com/");
+var Backbone = require('backparse')({
+    appId: 'yJiZubO8JLzfUFse2nvE3MBFaO6o9IJSSzXSiOdi',
+    apiKey: 'udxVtPHhV1pnBxfBHgkNEpMwv7OMTyLcM28KPLOC',
+    apiVersion: 1
+});
 
-var Backbone = require("backbone");
 Backbone.$ = require("jquery");
 
 module.exports = Backbone.Model.extend({

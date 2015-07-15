@@ -1,9 +1,8 @@
 var React = require('react');
 var Backbone = require("backbone");
 Backbone.$ = require("jquery");
-var Firebase = require("firebase");
 
-var myDataRef = new Firebase("https://radiant-fire-677.firebaseio.com/");
+//var listing = new ListingModel();
 
 var containerEl = document.getElementById("container");
 
