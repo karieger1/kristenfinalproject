@@ -33602,7 +33602,7 @@ module.exports = React.createClass({
 			map: null
 		};
 	},
-	componentWillMount: function componentWillMount() {
+	componentDidMount: function componentDidMount() {
 		google.maps.event.addDomListener(window, 'load', this.createMap);
 	},
 	render: function render() {
@@ -33621,7 +33621,6 @@ module.exports = React.createClass({
 					{ ref: 'map', style: style },
 					'hello'
 				),
-				'/*',
 				React.createElement(
 					'div',
 					{ ref: 'street', style: style },
@@ -33641,9 +33640,14 @@ module.exports = React.createClass({
 					'button',
 					{ type: 'button', onClick: this.streetView },
 					'Street view'
+				),
+				React.createElement('br', null),
+				React.createElement(
+					'a',
+					{ className: 'btn btn-default', id: 'listbutton', href: '#findThingsList', role: 'button' },
+					'List view'
 				)
-			),
-			'*/'
+			)
 		);
 	},
 	createMap: function createMap() {
@@ -33698,42 +33702,36 @@ module.exports = React.createClass({
 });
 
 },{"react":160}],166:[function(require,module,exports){
-"use strict";
+'use strict';
 
-var React = require("react");
-var listingCollection = require("../collections/listingCollection");
+var React = require('react');
+var listingCollection = require('../collections/listingCollection');
 
 module.exports = React.createClass({
-	displayName: "exports",
+	displayName: 'exports',
 
 	componentWillMount: function componentWillMount() {
 		var listings = new listingCollection();
 		listings.fetch;
 	},
-	//call .map -- takes list of models and converts to react/html
+
 	render: function render() {
-		return React.createElement(
-			"div",
-			null,
-			React.createElement(
-				"div",
-				{ className: "panel panel-default" },
+		var listingEls = this.props.listing.map(function (ListingModel) {
+			return React.createElement(
+				'div',
+				{ key: ListingModel.cid },
 				React.createElement(
-					"div",
-					{ className: "panel-heading" },
-					React.createElement(
-						"h3",
-						{ className: "panel-title" },
-						"Panel title"
-					)
+					'h3',
+					null,
+					ListingModel.get('title')
 				),
 				React.createElement(
-					"div",
-					{ className: "panel-body" },
-					"Panel content"
+					'p',
+					null,
+					ListingModel.get('description')
 				)
-			)
-		);
+			);
+		});
 	}
 });
 
@@ -33830,13 +33828,9 @@ module.exports = React.createClass({
 				"div",
 				{ className: "goalscircle" },
 				React.createElement(
-					"center",
-					null,
-					React.createElement(
-						"div",
-						{ id: "goalsHeading" },
-						"TMT's goals are threefold:"
-					)
+					"div",
+					{ id: "goalsHeading" },
+					"TMT's goals are threefold:"
 				),
 				React.createElement(
 					"div",
@@ -34198,33 +34192,6 @@ module.exports = React.createClass({
 			self.setState({ imageUrl: response[0].url });
 		});
 	}
-
-	// submitlistingbutton.onClick {
-	// 	app.navigate('listSuccess', {trigger: true});
-
-	// }
-
-	// submitListing: function(e) {
-	// 	e.preventDefault();
-	// 	var listingSubmit = new ListModel({
-	// 		title: this.refs.title.getDOMNode().value,
-	// 		description: this.refs.description.getDOMNode().value,
-	// 		itemCondition: this.refs.condition.getDOMNode().value,
-	// 		category: this.refs.category.getDOMNode().value,
-	// 		listingName: this.refs.listing.getDOMNode().value,
-	// 		listingEmail: this.refs.email.getDOMNode().value,
-	// 		listingPhone: this.refs.phone.getDOMNode().value,
-	// 		listingAddress: this.refs.address.getDOMNode().value,
-	// 		listingZip: this.refs.zip.getDOMNode().value,
-
-	// 	});
-
-	// 	listingSubmit.save(null,{
-	// 			success: function(ListModel) {
-	// 				app.navigate('listSuccess', {trigger: true});
-	// 			}
-	// 		})
-	// 	}
 
 });
 /* this.state.imageUrl */ /* if this is truthy, image uploaded */

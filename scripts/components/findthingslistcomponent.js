@@ -2,26 +2,23 @@ var React = require('react');
 var listingCollection = require("../collections/listingCollection");
 
 
-
 module.exports = React.createClass({
 
 	componentWillMount: function() {
 		var listings = new listingCollection();
-		listings.fetch
+		listings.fetch;
 	},
-//call .map -- takes list of models and converts to react/html
-	render: function () {
-		return (
-			<div>
-				<div className="panel panel-default">
-					<div className="panel-heading">
-					    	<h3 className="panel-title">Panel title</h3>
-					</div>
-					<div className="panel-body">
-					    Panel content
-					</div>
+
+	render: function() {
+		var listingEls = this.props.listing.map(function(ListingModel) {
+			return (
+				<div key={ListingModel.cid}>
+					<h3>{ListingModel.get('title')}</h3>
+					<p>{ListingModel.get('description')}</p>
+					
 				</div>
-			</div>
-		);
+			);
+		});
+		
 	}
 });

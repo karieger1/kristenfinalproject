@@ -199,32 +199,7 @@ module.exports = React.createClass({
 		);
 	}
 					
-	// submitlistingbutton.onClick {
-	// 	app.navigate('listSuccess', {trigger: true});
 
-	// }
-
-	// submitListing: function(e) {
-	// 	e.preventDefault();
-	// 	var listingSubmit = new ListModel({
-	// 		title: this.refs.title.getDOMNode().value,
-	// 		description: this.refs.description.getDOMNode().value,
-	// 		itemCondition: this.refs.condition.getDOMNode().value,
-	// 		category: this.refs.category.getDOMNode().value,
-	// 		listingName: this.refs.listing.getDOMNode().value,
-	// 		listingEmail: this.refs.email.getDOMNode().value,
-	// 		listingPhone: this.refs.phone.getDOMNode().value,
-	// 		listingAddress: this.refs.address.getDOMNode().value,
-	// 		listingZip: this.refs.zip.getDOMNode().value,
-
-	// 	});
-
-	// 	listingSubmit.save(null,{
-	// 			success: function(ListModel) {
-	// 				app.navigate('listSuccess', {trigger: true});
-	// 			}
-	// 		})
-	// 	}
 
 
 				

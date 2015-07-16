@@ -18,7 +18,7 @@ module.exports = React.createClass ({
 					  <center><p><a className="btn btn-primary btn-lg" id="button1" href="#listThings" role="button">Get rid of things</a></p></center>
 					  <center><p><a className="btn btn-primary btn-lg" id="button2" href="#findThingsMap" role="button">Find things</a></p></center>
 				<div className="goalscircle">
-					<center><div id="goalsHeading">TMT's goals are threefold:</div></center>
+					<div id="goalsHeading">TMT's goals are threefold:</div>
 						<div className="goals">	
 							<div id="goal1">Reduce<br/> waste</div>
 							<div id="goal2">Help <br/> others</div>

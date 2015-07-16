@@ -7,7 +7,7 @@ module.exports = React.createClass({
 			map: null
 		}
 	},
-	componentWillMount: function() {
+	componentDidMount: function() {
 		google.maps.event.addDomListener(window, 'load', this.createMap);
 	},
 	render: function() {
@@ -19,7 +19,7 @@ module.exports = React.createClass({
 			<div className="googlemap">
 				<center>
 				<div ref="map" style={style}>hello</div>
-				/*<div ref="street" style={style}>hello</div>
+				<div ref="street" style={style}>hello</div>
 				<button type="button" onClick={this.recenterMap}>
 					Re-center map
 				</button>
@@ -28,8 +28,9 @@ module.exports = React.createClass({
 				</button>
 				<button type="button" onClick={this.streetView}>
 					Street view
-				</button>
-				</center>*/
+				</button><br/>
+					<a className="btn btn-default" id="listbutton" href="#findThingsList" role="button">List view</a>
+				</center>
 			</div>
 		);
 	},
